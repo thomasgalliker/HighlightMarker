@@ -1,5 +1,5 @@
 # HighlightMarker
-HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it does nothing more than telling you from/to which character of a given text you need to start/stop highlighting the user's search input.
+HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
 
 ### Download and Install HighlightMarker
 This library is available on NuGet: https://www.nuget.org/packages/HighlightMarker/
