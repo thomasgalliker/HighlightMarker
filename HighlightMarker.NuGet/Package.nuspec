@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker</id>
-    <version>1.0.0-alpha1</version>
+    <version>1.0.0</version>
     <title>HighlightMarker</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -58,9 +58,9 @@
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\xamarin.ios10\HighlightMarker.xml" />
 
     <!--Windows Phone 8-->
-    <!--<file src="..\HighlightMarker.WindowsPhone8\Bin\Release\HighlightMarker.Platform.dll" target="lib\wp8\HighlightMarker.Platform.dll" />
+    <file src="..\HighlightMarker.WindowsPhone8\Bin\Release\HighlightMarker.Platform.dll" target="lib\wp8\HighlightMarker.Platform.dll" />
     <file src="..\HighlightMarker.WindowsPhone8\Bin\Release\HighlightMarker.Platform.pdb" target="lib\wp8\HighlightMarker.Platform.pdb" />
-    <file src="..\HighlightMarker.WindowsPhone8\Bin\Release\HighlightMarker.Platform.xml" target="lib\wp8\HighlightMarker.Platform.xml" />-->
+    <file src="..\HighlightMarker.WindowsPhone8\Bin\Release\HighlightMarker.Platform.xml" target="lib\wp8\HighlightMarker.Platform.xml" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.dll" target="lib\wp8\HighlightMarker.dll" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\wp8\HighlightMarker.pdb" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\wp8\HighlightMarker.xml" />
