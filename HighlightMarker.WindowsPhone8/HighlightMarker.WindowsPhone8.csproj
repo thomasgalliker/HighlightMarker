@@ -85,6 +85,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchTextHighlighting.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HighlightMarker\HighlightMarker.csproj">
