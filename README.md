@@ -28,3 +28,16 @@ var highlightList = highlightEnumerator.ToList<HighlightIndex>();
 
 ### License
 HighlightMarker is Copyright &copy; 2015 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
+
+
+### Sources
+
+https://developer.xamarin.com/recipes/ios/standard_controls/text_field/style_text/
+
+https://www.syntaxismyui.com/xamarin-forms-searchbar-recipe/
+
+https://developer.xamarin.com/guides/cross-platform/xamarin-forms/user-interface/listview/customizing-cell-appearance/#Custom_Cells
+
+
+
+

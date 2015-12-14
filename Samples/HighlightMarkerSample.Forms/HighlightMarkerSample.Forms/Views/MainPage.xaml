@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:HighlightMarkerSample.Forms.Views;assembly=HighlightMarkerSample.Forms"
+             x:Class="HighlightMarkerSample.Forms.Views.MainPage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <DataTemplate x:Key="TextCellTemplate">
+        <ViewCell>
+          <ViewCell.View>
+            <StackLayout Orientation="Vertical">
+              
+              <!--Title-->
+              <Label views:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
+                     views:TextHighlightBehavior.FullText="{Binding Title}" />
+
+              <!--Subtitle-->
+              <Label views:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
+                         views:TextHighlightBehavior.FullText="{Binding Subtitle}" />
+            </StackLayout>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout Orientation="Vertical">
+    <SearchBar x:Name="SearchBar" Placeholder = "Search" TextChanged="SearchBarOnTextChanged"/>
+    <ListView ItemsSource="{Binding Malls.View}"
+              ItemTemplate="{StaticResource TextCellTemplate}"/>
+  </StackLayout>
+</ContentPage>
