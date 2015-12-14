@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HighlightMarker.Forms</id>
+    <version>1.0.0-pre1</version>
+    <title>HighlightMarker.Forms</title>
+    <authors>Thomas Galliker</authors>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/thomasgalliker/HighlightMarker</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Xamarin.Forms integration for HighlightMarker</summary>
+    <description>
+      HighlightMarker.Forms enables HighlightMarker to be used with Xamarin.Forms.
+    </description>
+    <tags>
+      xamarin pcl HighlightMarker.Forms plugin for settings HighlightMarker.Forms
+      windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
+    </tags>
+    <releaseNotes>
+      This is the initial release of HighlightMarker.Forms. Please report problems here: https://github.com/thomasgalliker/HighlightMarker.
+      Contributions on github are welcome!
+    </releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <language>en-US</language>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <!--PCL-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10\HighlightMarker.Forms.xml" />
+    
+    <file src="tools\init.ps1" target="tools\init.ps1" />
+    <file src="tools\install.ps1" target="tools\install.ps1" />
+    <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />
+  </files>
+</package>

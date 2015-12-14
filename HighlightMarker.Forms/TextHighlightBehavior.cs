@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace HighlightMarkerSample.Forms.Views
+namespace HighlightMarker.Forms
 {
     public class TextHighlightBehavior
     {
@@ -15,7 +11,7 @@ namespace HighlightMarkerSample.Forms.Views
                defaultValue: null,
                defaultBindingMode: BindingMode.OneWay,
                validateValue: null,
-               propertyChanged:(b, o, n) => TextHighlightBehavior.OnFullTextPropertyChanged(b, o, n),
+               propertyChanged: (b, o, n) => TextHighlightBehavior.OnFullTextPropertyChanged(b, o, n),
                propertyChanging: null,
                coerceValue: null);
 
@@ -74,11 +70,11 @@ namespace HighlightMarkerSample.Forms.Views
                 return;
             }
 
-            Color foregroundColor = Color.Aqua; //GetHighlightBrush(textBlock) ?? new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
+            Color foregroundColor = Color.Accent; //GetHighlightBrush(textBlock) ?? new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
 
             label.FormattedText = string.Empty;
 
-            var highlightMarker = new HighlightMarker.HighlightMarker(fulltext, highlightedText);
+            var highlightMarker = new HighlightMarker(fulltext, highlightedText);
 
             using (var enumerator = highlightMarker.GetEnumerator())
             {
