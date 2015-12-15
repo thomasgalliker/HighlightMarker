@@ -51,8 +51,9 @@ namespace HighlightMarker
             }
 
             IEnumerable<int> realRange = new List<int>();
-            foreach (Range i in this.Index)
+            for (int index = 0; index < this.Index.Count; index++)
             {
+                Range i = this.Index[index];
                 realRange = realRange.Union(Enumerable.Range(i.LowerBound, i.UpperBound - i.LowerBound));
             }
 
