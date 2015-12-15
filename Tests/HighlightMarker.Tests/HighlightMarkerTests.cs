@@ -17,8 +17,7 @@ namespace HighlightMarker.Tests
             var highlightMarker = new HighlightMarker(FullText, SearchText);
 
             // Act.
-            var highlightEnumerator = highlightMarker.GetEnumerator();
-            var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+            var highlightList = highlightMarker.ToList();
 
             // Assert
             highlightList.Should().NotBeNull();
@@ -36,8 +35,7 @@ namespace HighlightMarker.Tests
             var highlightMarker = new HighlightMarker(FullText, SearchText);
 
             // Act.
-            var highlightEnumerator = highlightMarker.GetEnumerator();
-            var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+            var highlightList = highlightMarker.ToList();
 
             // Assert
             highlightList.Should().NotBeNull();
@@ -55,8 +53,7 @@ namespace HighlightMarker.Tests
             var highlightMarker = new HighlightMarker(FullText, SearchText);
 
             // Act
-            var highlightEnumerator = highlightMarker.GetEnumerator();
-            var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+            var highlightList = highlightMarker.ToList();
 
             // Assert
             highlightList.Should().NotBeNull();
@@ -75,8 +72,7 @@ namespace HighlightMarker.Tests
             var highlightMarker = new HighlightMarker(FullText, SearchText);
 
             // Act
-            var highlightEnumerator = highlightMarker.GetEnumerator();
-            var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+            var highlightList = highlightMarker.ToList();
 
             // Assert
             highlightList.Should().NotBeNull();
@@ -96,8 +92,7 @@ namespace HighlightMarker.Tests
             var highlightMarker = new HighlightMarker(FullText, SearchText);
 
             // Act
-            var highlightEnumerator = highlightMarker.GetEnumerator();
-            var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+            var highlightList = highlightMarker.ToList();
 
             // Assert
             highlightList.Should().NotBeNull();
@@ -116,8 +111,7 @@ namespace HighlightMarker.Tests
             var highlightMarker = new HighlightMarker(FullText, SearchText);
 
             // Act
-            var highlightEnumerator = highlightMarker.GetEnumerator();
-            var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+            var highlightList = highlightMarker.ToList();
 
             // Assert
             highlightList.Should().NotBeNull();

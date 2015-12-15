@@ -1,10 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace HighlightMarker
 {
-    public class HighlightMarker
+    public class HighlightMarker : IEnumerable<HighlightIndex>
     {
         private string searchText;
 
@@ -15,6 +16,7 @@ namespace HighlightMarker
             this.FullText = fullText;
             this.SearchText = searchText;
         }
+
         public string FullText { get; private set; }
 
         public IList<Range> Index { get; private set; }
@@ -34,6 +36,11 @@ namespace HighlightMarker
                     this.searchText = value;
                 }
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
 
         /// <summary>
