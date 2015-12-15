@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/thomasgalliker/HighlightMarker</projectUrl>
     <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>A simple-to-use highlighter marker for search text</summary>
+    <summary>A simple-to-use highlight marker for search text highlighting</summary>
     <description>
       HighlightMarker is a library which supports you in highlighting an input string in a given text.
       Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
