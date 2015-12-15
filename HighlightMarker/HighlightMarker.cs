@@ -97,14 +97,8 @@ namespace HighlightMarker
             }
 
             string[] searchStrings = text.Trim().Split(new[] { " ", "," }, StringSplitOptions.RemoveEmptyEntries);
-
-            this.Index.Clear();
-
             var fullTextList = new List<string> { this.FullText };
-            ////if (this.FullText.HasDiacritics())
-            ////{
-            ////    fullTextList.Add(this.FullText.RemoveDiacritics());
-            ////}
+            this.Index.Clear();
 
             foreach (string searchString in searchStrings)
             {
