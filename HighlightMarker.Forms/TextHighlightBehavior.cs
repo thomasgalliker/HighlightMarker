@@ -11,7 +11,7 @@ namespace HighlightMarker.Forms
                defaultValue: null,
                defaultBindingMode: BindingMode.OneWay,
                validateValue: null,
-               propertyChanged: (b, o, n) => TextHighlightBehavior.OnFullTextPropertyChanged(b, o, n),
+               propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b, o, n),
                propertyChanging: null,
                coerceValue: null);
 
@@ -20,7 +20,7 @@ namespace HighlightMarker.Forms
               defaultValue: null,
               defaultBindingMode: BindingMode.OneWay,
               validateValue: null,
-              propertyChanged: (b, o, n) => TextHighlightBehavior.OnHighlightedTextPropertyChanged(b, o, n),
+              propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b, o, n),
               propertyChanging: null,
               coerceValue: null);
 
@@ -44,16 +44,7 @@ namespace HighlightMarker.Forms
             bo.SetValue(TextHighlightBehavior.HighlightedTextProperty, value);
         }
 
-        private static void OnFullTextPropertyChanged(BindableObject bindableObject, string oldValue, string newValue)
-        {
-            UpdateHighlightedText(bindableObject);
-        }
-        private static void OnHighlightedTextPropertyChanged(BindableObject bindableObject, string oldValue, string newValue)
-        {
-            UpdateHighlightedText(bindableObject);
-        }
-
-        private static void UpdateHighlightedText(BindableObject bindableObject)
+        private static void OnTextPropertyChanged(BindableObject bindableObject, string oldValue, string newValue)
         {
             var label = bindableObject as Label;
             if (label == null)
