@@ -1,5 +1,7 @@
 # HighlightMarker
-HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
+HighlightMarker is a library which supports you in highlighting text of a UI label. This can be particularly helpful if you want to highlight the user's search input e.g. in a list of text items. 
+
+<img src="/Samples/Screenshot.Android.png" width="240">
 
 ### Download and Install HighlightMarker
 This library is available on NuGet: https://www.nuget.org/packages/HighlightMarker/
@@ -12,6 +14,23 @@ You can use this library in any .Net project which is compatible to PCL (e.g. Xa
     PM> Install-Package HighlightMarker.Forms
 
 ### How to use HighlightMarker
+Essentially, HighlightMarker tells you from/to which character of a given text you need to start/stop highlighting the user's search input. To explain how HighlightMarker works, it's best to consult the a simple unit test. Following test shows how a given ```FullText``` is highlighted with the string in variable ```SearchText```:
+
+```
+// Arrange
+const string FullText = "full text for highlight marking";
+const string SearchText = "highlight";
+var highlightMarker = new HighlightMarker(FullText, SearchText);
+
+// Act
+var highlightList = highlightMarker.ToList();
+
+// Assert
+```
+![Debug view of highlightList](/readme/images/highlightlist.png)
+
+In order to make this highlighting logic accessible to *any* UI, there is a couple of platform-specific implementations for UI text highlighting. Have a look at the following subchapters:
+
 #### Using HighlightMarker in Xamarin.Forms
 In the folder Samples\HighlightMarker.Forms you can find a Xamarin.Forms demo project which displays a searchable list of shopping malls. The ```<ViewCell.View>``` defines a custom cell template for the malls list. The most interesting part are the custom bindings named ```TextHighlightBehavior.HighlightedText``` and ```TextHighlightBehavior.FullText```. All you need to do is binding the HighlightedText property to the search string (in our case we reference the Text property of the SearchBar) and binding the FullText property to the ViewModel property. 
 
@@ -29,25 +48,11 @@ TODO: Document usage of ```UILabelExtensions```.
 #### Using HighlightMarker in Windows Phone projects
 TODO: Document usage of ```SearchTextHighlighting``` and its attached dependency properties.
 
-#### Using HighlightMarker in any C# project
-To explain the usage of HighlightMarker, it's best to consult the existing unit tests. Following test shows how a certain ```FullText``` is highlighted with the string ```SearchText```:
-
-```
-// Arrange
-const string FullText = "full text for highlight marking";
-const string SearchText = "highlight";
-var highlightMarker = new HighlightMarker(FullText, SearchText);
-
-// Act
-var highlightList = highlightMarker.ToList();
-
-// Assert
-```
-![GitHub Logo](/readme/images/highlightlist.png)
+### Feedback
+Let me know your optinion and how we can improve this project. You are kindly invited to write an issue if you want to discuss problems and/or propose new features. Contributors are highly welcome!
 
 ### License
 HighlightMarker is Copyright &copy; 2015 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
-
 
 ### Sources
 
