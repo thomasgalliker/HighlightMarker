@@ -13,34 +13,27 @@ namespace HighlightMarker
         public static void HighlightText(this UILabel textView, string searchText, UIColor foregroundColor, UIColor backgroundColor = null)
         {
             var highlightMarker = new HighlightMarker(textView.Text, searchText);
-            using (var enumerator = highlightMarker.GetEnumerator())
+
+            var textAttributed = new NSMutableAttributedString(textView.Text);
+            foreach (var segment in highlightMarker)
             {
-                var textAttributed = new NSMutableAttributedString(textView.Text);
-                while (enumerator.MoveNext())
+                int fromIndex = segment.FromIndex;
+                int length = segment.Length;
+                bool isHighlighted = segment.IsHighlighted;
+
+                if (isHighlighted)
                 {
-                    int fromIndex = enumerator.Current.FromIndex;
-                    int length = enumerator.Current.Length;
-                    bool isHighlighted = enumerator.Current.IsHighlighted;
-
-                    if (isHighlighted)
+                    var colourAttribute = new UIStringAttributes
                     {
-                        var colourAttribute = new UIStringAttributes
-                        {
-                            ForegroundColor = foregroundColor,
-                        };
-                        textAttributed.SetAttributes(colourAttribute, new NSRange(fromIndex, length));
-
-                        ////spannableStringBuilder.SetSpan(new ForegroundColorSpan(foregroundColor), fromIndex, endIndex, SpanTypes.ExclusiveExclusive);
-                        
-                        ////if (backgroundColor.HasValue)
-                        ////{
-                        ////    spannableStringBuilder.SetSpan(new BackgroundColorSpan(backgroundColor.Value), fromIndex, endIndex, SpanTypes.ExclusiveExclusive);
-                        ////}
-                    }
+                        ForegroundColor = foregroundColor,
+                        BackgroundColor = backgroundColor
+                    };
+                    
+                    textAttributed.SetAttributes(colourAttribute, new NSRange(fromIndex, length));
                 }
-
-                textView.AttributedText = textAttributed;
             }
+
+            textView.AttributedText = textAttributed;
         }
     }
 }
