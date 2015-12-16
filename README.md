@@ -7,9 +7,29 @@ Use the following command to install HighlightMarker using NuGet package manager
 
     PM> Install-Package HighlightMarker
 
-You can use this library in any .Net project which is compatible to PCL (e.g. Xamarin Android, iOS, Windows Phone, Windows Store, Universal Apps, etc.)
+You can use this library in any .Net project which is compatible to PCL (e.g. Xamarin Android, iOS, Windows Phone, Windows Store, Universal Apps, etc.). There is a special NuGet package for Xamarin.Forms available:
+
+    PM> Install-Package HighlightMarker.Forms
 
 ### How to use HighlightMarker
+#### Using HighlightMarker in Xamarin.Forms
+In the folder Samples\HighlightMarker.Forms you can find a Xamarin.Forms demo project which displays a searchable list of shopping malls. The ```<ViewCell.View>``` defines a custom cell template for the malls list. The most interesting part are the custom bindings named ```TextHighlightBehavior.HighlightedText``` and ```TextHighlightBehavior.FullText```. All you need to do is binding the HighlightedText property to the search string (in our case we reference the Text property of the SearchBar) and binding the FullText property to the ViewModel property. 
+
+```
+    <Label forms:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
+           forms:TextHighlightBehavior.FullText="{Binding Title}" />
+```
+
+#### Using HighlightMarker in Xamarin.Android projects
+TODO: Document usage of ```TextViewExtensions```.
+
+#### Using HighlightMarker in Xamarin.iOS projects
+TODO: Document usage of ```UILabelExtensions```.
+
+#### Using HighlightMarker in Windows Phone projects
+TODO: Document usage of ```SearchTextHighlighting``` and its attached dependency properties.
+
+#### Using HighlightMarker in any C# project
 To explain the usage of HighlightMarker, it's best to consult the existing unit tests. Following test shows how a certain ```FullText``` is highlighted with the string ```SearchText```:
 
 ```
