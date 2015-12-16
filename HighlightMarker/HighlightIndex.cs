@@ -53,6 +53,5 @@ namespace HighlightMarker
         {
             return !a.Equals(b);
         }
-
     }
 }
