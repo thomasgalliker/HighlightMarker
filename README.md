@@ -19,8 +19,7 @@ const string SearchText = "highlight";
 var highlightMarker = new HighlightMarker(FullText, SearchText);
 
 // Act
-var highlightEnumerator = highlightMarker.GetEnumerator();
-var highlightList = highlightEnumerator.ToList<HighlightIndex>();
+var highlightList = highlightMarker.ToList();
 
 // Assert
 ```
