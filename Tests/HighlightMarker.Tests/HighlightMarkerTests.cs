@@ -9,7 +9,7 @@ namespace HighlightMarker.Tests
     public class HighlightMarkerTests
     {
         [Fact]
-        public void HighlightMarkerShouldNotMarkIfEmptyString()
+        public void ShouldNotMarkIfEmptyString()
         {
             // Arrange.
             const string FullText = "full text for highlight marking";
@@ -27,7 +27,7 @@ namespace HighlightMarker.Tests
         }
 
         [Fact]
-        public void HighlightMarkerShouldNotMarkIfSearchStringNotFound()
+        public void ShouldNotMarkIfSearchStringNotFound()
         {
             // Arrange.
             const string FullText = "";
@@ -45,7 +45,7 @@ namespace HighlightMarker.Tests
         }
 
         [Fact]
-        public void HighlightMarkerShouldMarkSingleWordInTheBeginning()
+        public void ShouldMarkSingleWordInTheBeginning()
         {
             // Arrange
             const string FullText = "full text for highlight marking";
@@ -64,7 +64,7 @@ namespace HighlightMarker.Tests
         }
 
         [Fact]
-        public void HighlightMarkerShouldMarkSingleWordInBetween()
+        public void ShouldMarkSingleWordInBetween()
         {
             // Arrange
             const string FullText = "full text for highlight marking";
@@ -84,7 +84,7 @@ namespace HighlightMarker.Tests
         }
 
         [Fact]
-        public void HighlightMarkerShouldMarkSingleWordInTheEnd()
+        public void ShouldMarkSingleWordInTheEnd()
         {
             // Arrange
             const string FullText = "full text for highlight marking";
@@ -103,7 +103,7 @@ namespace HighlightMarker.Tests
         }
 
         [Fact]
-        public void HighlightMarkerShouldMarkSingleLetter()
+        public void ShouldMarkSingleLetter()
         {
             // Arrange
             const string FullText = "full text for highlight marking";
@@ -123,6 +123,28 @@ namespace HighlightMarker.Tests
             AssertHighlightIndex(highlightList.ElementAt(3), fromIndex: 20, length: 1, isHighlighted: true);
             AssertHighlightIndex(highlightList.ElementAt(4), fromIndex: 21, length: 9, isHighlighted: false);
             AssertHighlightIndex(highlightList.ElementAt(5), fromIndex: 30, length: 1, isHighlighted: true);
+        }
+
+        [Fact]
+        public void ShouldSplitWithCustomDelimiters()
+        {
+            // Arrange
+            const string FullText = "full text for highlight marking";
+            const string SearchText = "full, for;king";
+            var highlightMarker = new HighlightMarker(FullText, SearchText, new[] { ',', ';' });
+
+            // Act
+            var highlightList = highlightMarker.ToList();
+
+            // Assert
+            highlightList.Should().NotBeNull();
+            highlightList.Should().HaveCount(5);
+
+            AssertHighlightIndex(highlightList.ElementAt(0), fromIndex: 0, length: 4, isHighlighted: true);
+            AssertHighlightIndex(highlightList.ElementAt(1), fromIndex: 4, length: 5, isHighlighted: false);
+            AssertHighlightIndex(highlightList.ElementAt(2), fromIndex: 9, length: 4, isHighlighted: true);
+            AssertHighlightIndex(highlightList.ElementAt(3), fromIndex: 13, length: 14, isHighlighted: false);
+            AssertHighlightIndex(highlightList.ElementAt(4), fromIndex: 27, length: 4, isHighlighted: true);
         }
 
         private static void AssertHighlightIndex(HighlightIndex highlightIndex, int fromIndex, int length, bool isHighlighted)

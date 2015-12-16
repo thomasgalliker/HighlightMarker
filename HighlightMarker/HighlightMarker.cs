@@ -8,13 +8,18 @@ namespace HighlightMarker
     public class HighlightMarker : IEnumerable<HighlightIndex>
     {
         private string searchText;
+        private char[] searchTextDelimiters = {' '};
 
-        public HighlightMarker(string fullText, string searchText)
+        public HighlightMarker(string fullText, string searchText, char[] searchTextDelimiters = null)
         {
             this.Index = new List<Range>();
-
             this.FullText = fullText;
             this.SearchText = searchText;
+            
+            if (searchTextDelimiters != null && searchTextDelimiters.Any())
+            {
+                this.SearchTextDelimiters = searchTextDelimiters;
+            }
         }
 
         public string FullText { get; private set; }
@@ -28,12 +33,29 @@ namespace HighlightMarker
                 return this.searchText;
             }
 
-            private set
+            set
             {
                 if (value != this.searchText)
                 {
-                    this.CreateIndex(value);
                     this.searchText = value;
+                    this.UpdateIndex();
+                }
+            }
+        }
+
+        public char[] SearchTextDelimiters
+        {
+            get
+            {
+                return this.searchTextDelimiters;
+            }
+
+            set
+            {
+                if (value != this.searchTextDelimiters)
+                {
+                    this.searchTextDelimiters = value;
+                    this.UpdateIndex();
                 }
             }
         }
@@ -89,34 +111,41 @@ namespace HighlightMarker
             }
         }
 
-        private void CreateIndex(string text)
+        private void UpdateIndex()
         {
-            if (string.IsNullOrEmpty(text))
+            this.Index = CreateIndex(this.FullText, this.SearchText, this.SearchTextDelimiters);
+        }
+
+        private static IList<Range> CreateIndex(string fulltext, string searchtext, char[] delimiters)
+        {
+            if (string.IsNullOrEmpty(searchtext))
             {
-                return;
+                return Enumerable.Empty<Range>().ToList();
             }
 
-            string[] searchStrings = text.Trim().Split(new[] { " ", "," }, StringSplitOptions.RemoveEmptyEntries);
-            var fullTextList = new List<string> { this.FullText };
-            this.Index.Clear();
+            var index = new List<Range>();
+            var searchStrings = searchtext.Trim().Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            var fullTextItems = new List<string> { fulltext };
 
             foreach (string searchString in searchStrings)
             {
                 int length = searchString.Length;
 
-                foreach (var fulltext in fullTextList)
+                foreach (var fullTextItem in fullTextItems)
                 {
-                    int searchStringIndex = fulltext.IndexOf(searchString, 0, StringComparison.CurrentCultureIgnoreCase);
+                    int searchStringIndex = fullTextItem.IndexOf(searchString, 0, StringComparison.CurrentCultureIgnoreCase);
 
                     while (searchStringIndex >= 0)
                     {
-                        this.Index.Add(new Range(searchStringIndex, searchStringIndex + length));
+                        index.Add(new Range(searchStringIndex, searchStringIndex + length));
 
                         int lastIndex = searchStringIndex + length;
-                        searchStringIndex = fulltext.IndexOf(searchString, lastIndex, StringComparison.CurrentCultureIgnoreCase);
+                        searchStringIndex = fullTextItem.IndexOf(searchString, lastIndex, StringComparison.CurrentCultureIgnoreCase);
                     }
                 }
             }
+
+            return index;
         }
     }
 }
