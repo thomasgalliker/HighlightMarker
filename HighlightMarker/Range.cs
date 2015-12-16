@@ -1,13 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace HighlightMarker
 {
-    internal class Range
+    [DebuggerDisplay("[{LowerBound} - {UpperBound}]")]
+    internal struct Range : IEquatable<Range>
     {
-        public Range()
-        {
-        }
-
         public Range(int lowerBound, int upperBound)
         {
             this.LowerBound = lowerBound;
@@ -17,21 +15,12 @@ namespace HighlightMarker
         /// <summary>
         ///     LowerBound value of the range
         /// </summary>
-        public int LowerBound { get; set; }
+        public readonly int LowerBound;
 
         /// <summary>
         ///     UpperBound value of the range
         /// </summary>
-        public int UpperBound { get; set; }
-
-        /// <summary>
-        ///     Presents the Range in readable format
-        /// </summary>
-        /// <returns>String representation of the Range</returns>
-        public override string ToString()
-        {
-            return String.Format("[{0} - {1}]", this.LowerBound, this.UpperBound);
-        }
+        public readonly int UpperBound;
 
         /// <summary>
         ///     Determines if the range is valid
@@ -75,6 +64,39 @@ namespace HighlightMarker
         public bool IsEmpty()
         {
             return this.LowerBound.CompareTo(default(int)) == 0 && this.UpperBound.CompareTo(default(int)) == 0;
+        }
+
+        public bool Equals(Range other)
+        {
+            return other.LowerBound == this.LowerBound &&
+                   other.UpperBound == this.UpperBound;
+        }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is Range))
+            {
+                return false;
+            }
+
+            return this.Equals((Range)other);
+        }
+
+        public override int GetHashCode()
+        {
+            return
+                this.LowerBound.GetHashCode() ^
+                this.UpperBound.GetHashCode();
+        }
+
+        public static bool operator ==(Range a, Range b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Range a, Range b)
+        {
+            return !a.Equals(b);
         }
     }
 }
