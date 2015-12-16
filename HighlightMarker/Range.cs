@@ -2,7 +2,7 @@
 
 namespace HighlightMarker
 {
-    public class Range
+    internal class Range
     {
         public Range()
         {

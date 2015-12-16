@@ -7,15 +7,16 @@ namespace HighlightMarker
 {
     public class HighlightMarker : IEnumerable<HighlightIndex>
     {
+        private IList<Range> index;
         private string searchText;
-        private char[] searchTextDelimiters = {' '};
+        private char[] searchTextDelimiters = { ' ' };
 
         public HighlightMarker(string fullText, string searchText, char[] searchTextDelimiters = null)
         {
-            this.Index = new List<Range>();
+            this.index = new List<Range>();
             this.FullText = fullText;
             this.SearchText = searchText;
-            
+
             if (searchTextDelimiters != null && searchTextDelimiters.Any())
             {
                 this.SearchTextDelimiters = searchTextDelimiters;
@@ -23,8 +24,6 @@ namespace HighlightMarker
         }
 
         public string FullText { get; private set; }
-
-        public IList<Range> Index { get; private set; }
 
         public string SearchText
         {
@@ -73,47 +72,47 @@ namespace HighlightMarker
         /// <returns>The IEnumerator&lt;HighlightIndex&gt;.</returns>
         public IEnumerator<HighlightIndex> GetEnumerator()
         {
-            if (!this.Index.Any())
+            if (!this.index.Any())
             {
                 yield return new HighlightIndex(0, this.FullText.Length, false);
                 yield break;
             }
 
             IEnumerable<int> realRange = new List<int>();
-            for (int index = 0; index < this.Index.Count; index++)
+            for (int i = 0; i < this.index.Count; i++)
             {
-                Range i = this.Index[index];
-                realRange = realRange.Union(Enumerable.Range(i.LowerBound, i.UpperBound - i.LowerBound));
+                Range range = this.index[i];
+                realRange = realRange.Union(Enumerable.Range(range.LowerBound, range.UpperBound - range.LowerBound));
             }
 
-            IEnumerable<IList<int>> consecutiveGroups = realRange.OrderBy(x => x).ToConsecutiveGroups();
-            IList<Range> consecutiveRanges = new List<Range>();
+            var consecutiveGroups = realRange.OrderBy(x => x).ToConsecutiveGroups();
+            var consecutiveRanges = new List<Range>();
             foreach (var group in consecutiveGroups)
             {
                 consecutiveRanges.Add(new Range(group.Min(), group.Max()));
             }
 
-            var lastItem = new Tuple<Range, bool>(new Range(0, 0), false);
+            var lastItem = new { LowerBound = 0, UpperBound = 0, IsHighlighted = false };
             foreach (Range currentItem in consecutiveRanges.OrderBy(x => x.LowerBound).ThenBy(y => y.UpperBound))
             {
-                if (currentItem.LowerBound > lastItem.Item1.UpperBound)
+                if (currentItem.LowerBound > lastItem.UpperBound)
                 {
-                    yield return new HighlightIndex(lastItem.Item1.UpperBound, currentItem.LowerBound - lastItem.Item1.UpperBound, false);
+                    yield return new HighlightIndex(lastItem.UpperBound, currentItem.LowerBound - lastItem.UpperBound, false);
                 }
 
                 yield return new HighlightIndex(currentItem.LowerBound, currentItem.UpperBound - currentItem.LowerBound + 1, true);
-                lastItem = new Tuple<Range, bool>(new Range(currentItem.LowerBound + 1, currentItem.UpperBound + 1), true);
+                lastItem = new { LowerBound = currentItem.LowerBound + 1, UpperBound = currentItem.UpperBound + 1, IsHighlighted = true };
             }
 
-            if (this.Index.Max(x => x.UpperBound) < this.FullText.Length)
+            if (this.index.Max(x => x.UpperBound) < this.FullText.Length)
             {
-                yield return new HighlightIndex(lastItem.Item1.UpperBound, this.FullText.Length - lastItem.Item1.UpperBound, false);
+                yield return new HighlightIndex(lastItem.UpperBound, this.FullText.Length - lastItem.UpperBound, false);
             }
         }
 
         private void UpdateIndex()
         {
-            this.Index = CreateIndex(this.FullText, this.SearchText, this.SearchTextDelimiters);
+            this.index = CreateIndex(this.FullText, this.SearchText, this.SearchTextDelimiters);
         }
 
         private static IList<Range> CreateIndex(string fulltext, string searchtext, char[] delimiters)
