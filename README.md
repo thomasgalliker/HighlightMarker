@@ -46,7 +46,7 @@ TODO: Document usage of ```TextViewExtensions```.
 TODO: Document usage of ```UILabelExtensions```.
 
 #### Using HighlightMarker in Windows Phone projects
-TODO: Document usage of ```SearchTextHighlighting``` and its attached dependency properties.
+TODO: Document usage of ```TextBlockHighlighting``` and its attached dependency properties.
 
 ### Feedback
 Let me know your optinion and how we can improve this project. You are kindly invited to write an issue if you want to discuss problems and/or propose new features. Contributors are highly welcome!
