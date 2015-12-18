@@ -7,8 +7,6 @@ namespace HighlightMarker
 {
     public static class SearchTextHighlighting
     {
-        #region Static Fields
-
         public static readonly DependencyProperty FullTextProperty = DependencyProperty.RegisterAttached(
             "FullText",
             typeof(string),
@@ -27,73 +25,35 @@ namespace HighlightMarker
             typeof(SearchTextHighlighting),
             new PropertyMetadata(null, OnTextChangedCallback));
 
-        #endregion
-
-        #region Public Methods and Operators
-
-        /// <summary>
-        ///     The get full text.
-        /// </summary>
-        /// <param name="element">The element.</param>
-        /// <returns>The <see cref="string" />.</returns>
         public static string GetFullText(TextBlock element)
         {
             return (string)element.GetValue(FullTextProperty);
         }
 
-        /// <summary>
-        ///     The get highlight brush.
-        /// </summary>
-        /// <param name="element">The element.</param>
-        /// <returns>The <see cref="Brush" />.</returns>
         public static Brush GetHighlightBrush(TextBlock element)
         {
             return (Brush)element.GetValue(HighlightBrushProperty);
         }
 
-        /// <summary>
-        ///     The get highlighted text.
-        /// </summary>
-        /// <param name="element">The element.</param>
-        /// <returns>The <see cref="string" />.</returns>
         public static string GetHighlightedText(TextBlock element)
         {
             return (string)element.GetValue(HighlightedTextProperty);
         }
 
-        /// <summary>
-        ///     The set full text.
-        /// </summary>
-        /// <param name="element">The element.</param>
-        /// <param name="value">The value.</param>
         public static void SetFullText(TextBlock element, string value)
         {
             element.SetValue(FullTextProperty, value);
         }
 
-        /// <summary>
-        ///     The set highlight brush.
-        /// </summary>
-        /// <param name="element">The element.</param>
-        /// <param name="value">The value.</param>
         public static void SetHighlightBrush(TextBlock element, Brush value)
         {
             element.SetValue(HighlightBrushProperty, value);
         }
 
-        /// <summary>
-        ///     The set highlighted text.
-        /// </summary>
-        /// <param name="element">The element.</param>
-        /// <param name="value">The value.</param>
         public static void SetHighlightedText(TextBlock element, string value)
         {
             element.SetValue(HighlightedTextProperty, value);
         }
-
-        #endregion
-
-        #region Methods
 
         private static void OnHighlightBrushChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -137,26 +97,21 @@ namespace HighlightMarker
 
             var highlightMarker = new HighlightMarker(fulltext, highlightedText);
 
-            using (var enumerator = highlightMarker.GetEnumerator())
+            foreach (var current in highlightMarker)
             {
-                while (enumerator.MoveNext())
-                {
-                    int fromIndex = enumerator.Current.FromIndex;
-                    int length = enumerator.Current.Length;
-                    bool isHighlighted = enumerator.Current.IsHighlighted;
+                int fromIndex = current.FromIndex;
+                int length = current.Length;
+                bool isHighlighted = current.IsHighlighted;
 
-                    if (isHighlighted)
-                    {
-                        textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = brush });
-                    }
-                    else
-                    {
-                        textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length) });
-                    }
+                if (isHighlighted)
+                {
+                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = brush });
+                }
+                else
+                {
+                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length) });
                 }
             }
         }
-
-        #endregion
     }
 }
