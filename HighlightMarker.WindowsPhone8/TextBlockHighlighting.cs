@@ -5,24 +5,24 @@ using System.Windows.Media;
 
 namespace HighlightMarker
 {
-    public static class SearchTextHighlighting
+    public static class TextBlockHighlighting
     {
         public static readonly DependencyProperty FullTextProperty = DependencyProperty.RegisterAttached(
             "FullText",
             typeof(string),
-            typeof(SearchTextHighlighting),
+            typeof(TextBlockHighlighting),
             new PropertyMetadata(null, OnTextChangedCallback));
 
         public static readonly DependencyProperty HighlightBrushProperty = DependencyProperty.RegisterAttached(
             "HighlightBrush",
             typeof(Brush),
-            typeof(SearchTextHighlighting),
+            typeof(TextBlockHighlighting),
             new PropertyMetadata(null, OnHighlightBrushChangedCallback));
 
         public static readonly DependencyProperty HighlightedTextProperty = DependencyProperty.RegisterAttached(
             "HighlightedText",
             typeof(string),
-            typeof(SearchTextHighlighting),
+            typeof(TextBlockHighlighting),
             new PropertyMetadata(null, OnTextChangedCallback));
 
         public static string GetFullText(TextBlock element)
@@ -83,17 +83,15 @@ namespace HighlightMarker
             string fulltext = GetFullText(textBlock);
             string highlightedText = GetHighlightedText(textBlock);
 
+            textBlock.Inlines.Clear();
+
             if (string.IsNullOrEmpty(fulltext) || string.IsNullOrEmpty(highlightedText))
             {
-                // Clear search text highlighting
-                textBlock.Inlines.Clear();
                 textBlock.Inlines.Add(new Run { Text = fulltext });
                 return;
             }
 
-            Brush brush = GetHighlightBrush(textBlock) ?? new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
-
-            textBlock.Inlines.Clear();
+            var brush = GetHighlightBrush(textBlock) ?? new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
 
             var highlightMarker = new HighlightMarker(fulltext, highlightedText);
 
