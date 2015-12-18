@@ -57,20 +57,6 @@ namespace HighlightMarker
 
         private static void OnHighlightBrushChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            // TODO GATH: Test this code! Forward call to OnTextChangedCallback might work better than this...
-
-            var textBlock = d as TextBlock;
-            if (textBlock == null)
-            {
-                return;
-            }
-
-            Brush brush = GetHighlightBrush(textBlock);
-
-            for (int i = 0; i < textBlock.Inlines.Count; i += 2)
-            {
-                textBlock.Inlines[i].Foreground = brush;
-            }
         }
 
         private static void OnTextChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -91,7 +77,7 @@ namespace HighlightMarker
                 return;
             }
 
-            var brush = GetHighlightBrush(textBlock) ?? new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
+            var foregroundBrush = GetHighlightBrush(textBlock) ?? ColorHelper.GetDefaultHighlightBrush();
 
             var highlightMarker = new HighlightMarker(fulltext, highlightedText);
 
@@ -103,7 +89,7 @@ namespace HighlightMarker
 
                 if (isHighlighted)
                 {
-                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = brush });
+                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = foregroundBrush});
                 }
                 else
                 {
