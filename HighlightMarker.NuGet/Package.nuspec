@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>HighlightMarker</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -19,8 +19,7 @@
       windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
     </tags>
     <releaseNotes>
-      This is the initial release of HighlightMarker. Please report problems here: https://github.com/thomasgalliker/HighlightMarker.
-      Contributions on github are welcome!
+      - Rename SearchTextHighlighting to TextBlockHighlighting in Windows Phone 8 library
     </releaseNotes>
     <copyright>Copyright 2015</copyright>
     <language>en-US</language>
@@ -42,17 +41,17 @@
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\monoandroid10\HighlightMarker.xml" />
 
     <!--Xamarin.iOS Classic API-->
-    <!--<file src="..\HighlightMarker.iOS\bin\iPhone\Release\HighlightMarker.Platform.dll" target="lib\monotouch10\HighlightMarker.Platform.dll" />
+    <file src="..\HighlightMarker.iOS\bin\iPhone\Release\HighlightMarker.Platform.dll" target="lib\monotouch10\HighlightMarker.Platform.dll" />
     <file src="..\HighlightMarker.iOS\bin\iPhone\Release\HighlightMarker.Platform.pdb" target="lib\monotouch10\HighlightMarker.Platform.pdb" />
-    <file src="..\HighlightMarker.iOS\bin\iPhone\Release\HighlightMarker.Platform.xml" target="lib\monotouch10\HighlightMarker.Platform.xml" />-->
+    <file src="..\HighlightMarker.iOS\bin\iPhone\Release\HighlightMarker.Platform.xml" target="lib\monotouch10\HighlightMarker.Platform.xml" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.dll" target="lib\monotouch10\HighlightMarker.dll" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\monotouch10\HighlightMarker.pdb" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\monotouch10\HighlightMarker.xml" />
 
     <!--Xamarin.iOS Unified API-->
-    <!--<file src="..\HighlightMarker.iOSUnified\bin\iPhone\Release\HighlightMarker.Platform.dll" target="lib\xamarin.ios10\HighlightMarker.Platform.dll" />
+    <file src="..\HighlightMarker.iOSUnified\bin\iPhone\Release\HighlightMarker.Platform.dll" target="lib\xamarin.ios10\HighlightMarker.Platform.dll" />
     <file src="..\HighlightMarker.iOSUnified\bin\iPhone\Release\HighlightMarker.Platform.pdb" target="lib\xamarin.ios10\HighlightMarker.Platform.pdb" />
-    <file src="..\HighlightMarker.iOSUnified\bin\iPhone\Release\HighlightMarker.Platform.xml" target="lib\xamarin.ios10\HighlightMarker.Platform.xml" />-->
+    <file src="..\HighlightMarker.iOSUnified\bin\iPhone\Release\HighlightMarker.Platform.xml" target="lib\xamarin.ios10\HighlightMarker.Platform.xml" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.dll" target="lib\xamarin.ios10\HighlightMarker.dll" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\xamarin.ios10\HighlightMarker.pdb" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\xamarin.ios10\HighlightMarker.xml" />
@@ -70,14 +69,15 @@
     <file src="..\HighlightMarker.WindowsPhone81\Bin\Release\HighlightMarker.Platform.pdb" target="lib\wpa81\HighlightMarker.Platform.pdb" />
     <file src="..\HighlightMarker.WindowsPhone81\Bin\Release\HighlightMarker.Platform.xml" target="lib\wpa81\HighlightMarker.Platform.xml" />-->
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.dll" target="lib\wpa81\HighlightMarker.dll" />
-    <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\wp8\HighlightMarker.pdb" />
+    <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\wpa81\HighlightMarker.pdb" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\wpa81\HighlightMarker.xml" />
 
     <!--Windows Store-->
     <!--<file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.dll" target="lib\win81\HighlightMarker.Platform.dll" />
+    <file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.pdb" target="lib\win81\HighlightMarker.Platform.pdb" />
     <file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.xml" target="lib\win81\HighlightMarker.Platform.xml" />-->
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.dll" target="lib\win81\HighlightMarker.dll" />
-    <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\wp8\HighlightMarker.pdb" />
+    <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\win81\HighlightMarker.pdb" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\win81\HighlightMarker.xml" />
 
     <file src="tools\init.ps1" target="tools\init.ps1" />
