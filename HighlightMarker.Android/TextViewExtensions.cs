@@ -10,29 +10,26 @@ namespace HighlightMarker
         public static void HighlightText(this TextView textView, string searchText, Color foregroundColor, Color? backgroundColor = null)
         {
             var highlightMarker = new HighlightMarker(textView.Text, searchText);
-            using (var enumerator = highlightMarker.GetEnumerator())
+            var spannableStringBuilder = new SpannableStringBuilder(textView.Text);
+
+            foreach (var current in highlightMarker)
             {
-                var spannableStringBuilder = new SpannableStringBuilder(textView.Text);
+                int fromIndex = current.FromIndex;
+                int endIndex = fromIndex + current.Length;
+                bool isHighlighted = current.IsHighlighted;
 
-                while (enumerator.MoveNext())
+                if (isHighlighted)
                 {
-                    int fromIndex = enumerator.Current.FromIndex;
-                    int endIndex = fromIndex + enumerator.Current.Length;
-                    bool isHighlighted = enumerator.Current.IsHighlighted;
+                    spannableStringBuilder.SetSpan(new ForegroundColorSpan(foregroundColor), fromIndex, endIndex, SpanTypes.ExclusiveExclusive);
 
-                    if (isHighlighted)
+                    if (backgroundColor.HasValue)
                     {
-                        spannableStringBuilder.SetSpan(new ForegroundColorSpan(foregroundColor), fromIndex, endIndex, SpanTypes.ExclusiveExclusive);
-                        
-                        if (backgroundColor.HasValue)
-                        {
-                            spannableStringBuilder.SetSpan(new BackgroundColorSpan(backgroundColor.Value), fromIndex, endIndex, SpanTypes.ExclusiveExclusive);
-                        }
+                        spannableStringBuilder.SetSpan(new BackgroundColorSpan(backgroundColor.Value), fromIndex, endIndex, SpanTypes.ExclusiveExclusive);
                     }
                 }
-
-                textView.TextFormatted = spannableStringBuilder;
             }
+
+            textView.TextFormatted = spannableStringBuilder;
         }
     }
 }
