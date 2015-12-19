@@ -67,13 +67,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ListItem.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Mall.cs" />
+    <Compile Include="Model\MallManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,9 +103,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HighlightMarker.WPF\HighlightMarker.WPF.csproj">
+    <ProjectReference Include="..\..\HighlightMarker.Netfx\HighlightMarker.Netfx.csproj">
       <Project>{9252b66c-927f-405e-93d1-19a90fd6b165}</Project>
-      <Name>HighlightMarker.WPF</Name>
+      <Name>HighlightMarker.Netfx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HighlightMarker\HighlightMarker.csproj">
+      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
+      <Name>HighlightMarker</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
