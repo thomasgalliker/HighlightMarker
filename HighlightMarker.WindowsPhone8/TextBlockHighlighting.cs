@@ -1,11 +1,18 @@
-﻿using System.Windows;
+﻿#if WINDOWS_PHONE || WPF
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+#elif WINDOWS_PHONE_APP
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Documents;
+#endif
 
 namespace HighlightMarker
 {
-    public static class TextBlockHighlighting
+    public class TextBlockHighlighting : DependencyObject
     {
         public static readonly DependencyProperty FullTextProperty = DependencyProperty.RegisterAttached(
             "FullText",
@@ -17,13 +24,17 @@ namespace HighlightMarker
             "HighlightBrush",
             typeof(Brush),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(null, OnHighlightBrushChangedCallback));
+            new PropertyMetadata(null, OnTextChangedCallback));
 
         public static readonly DependencyProperty HighlightedTextProperty = DependencyProperty.RegisterAttached(
             "HighlightedText",
             typeof(string),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(null, OnTextChangedCallback));
+            new PropertyMetadata(""
+#if !WINDOWS_PHONE_APP
+                , OnTextChangedCallback // VERY STRANGE: Windows Phone 8.1 (w/o SL) crashes when this line is active
+#endif
+            ));
 
         public static string GetFullText(TextBlock element)
         {
@@ -33,11 +44,6 @@ namespace HighlightMarker
         public static Brush GetHighlightBrush(TextBlock element)
         {
             return (Brush)element.GetValue(HighlightBrushProperty);
-        }
-
-        public static string GetHighlightedText(TextBlock element)
-        {
-            return (string)element.GetValue(HighlightedTextProperty);
         }
 
         public static void SetFullText(TextBlock element, string value)
@@ -50,13 +56,14 @@ namespace HighlightMarker
             element.SetValue(HighlightBrushProperty, value);
         }
 
-        public static void SetHighlightedText(TextBlock element, string value)
+        public static string GetHighlightedText(DependencyObject d)
         {
-            element.SetValue(HighlightedTextProperty, value);
+            return (string)d.GetValue(HighlightedTextProperty);
         }
 
-        private static void OnHighlightBrushChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public static void SetHighlightedText(DependencyObject d, string value)
         {
+            d.SetValue(HighlightedTextProperty, value);
         }
 
         private static void OnTextChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -66,6 +73,7 @@ namespace HighlightMarker
             {
                 return;
             }
+
             string fulltext = GetFullText(textBlock);
             string highlightedText = GetHighlightedText(textBlock);
 
@@ -89,7 +97,7 @@ namespace HighlightMarker
 
                 if (isHighlighted)
                 {
-                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = foregroundBrush});
+                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = foregroundBrush });
                 }
                 else
                 {

@@ -80,7 +80,17 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\HighlightMarker.WindowsPhone8\TextBlockHighlighting.cs">
+      <Link>TextBlockHighlighting.cs</Link>
+    </Compile>
+    <Compile Include="ColorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HighlightMarker\HighlightMarker.csproj">
+      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
+      <Name>HighlightMarker</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
