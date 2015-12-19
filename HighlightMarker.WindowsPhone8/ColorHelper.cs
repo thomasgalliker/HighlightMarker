@@ -1,5 +1,10 @@
-﻿using System.Windows;
+﻿#if WINDOWS_PHONE
+using System.Windows;
 using System.Windows.Media;
+#elif WINDOWS_PHONE_APP
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+#endif
 
 namespace HighlightMarker
 {
@@ -7,7 +12,8 @@ namespace HighlightMarker
     {
         internal static Brush GetDefaultHighlightBrush()
         {
-            return new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
+            var brush = Application.Current.Resources["PhoneAccentBrush"];
+            return brush as Brush;
         }
     }
 }

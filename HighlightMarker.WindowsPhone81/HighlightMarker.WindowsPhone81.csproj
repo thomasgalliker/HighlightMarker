@@ -80,10 +80,12 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\HighlightMarker.WindowsPhone8\ColorHelper.cs">
+      <Link>ColorHelper.cs</Link>
+    </Compile>
     <Compile Include="..\HighlightMarker.WindowsPhone8\TextBlockHighlighting.cs">
       <Link>TextBlockHighlighting.cs</Link>
     </Compile>
-    <Compile Include="ColorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
