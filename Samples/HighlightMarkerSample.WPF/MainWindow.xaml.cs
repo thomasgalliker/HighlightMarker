@@ -2,26 +2,23 @@
 using System.Windows;
 using System.Windows.Controls;
 
+using HighlightMarkerSample.WPF.Model;
+
 using ObservableView;
 
 namespace HighlightMarkerSample.WPF
 {
     public partial class MainWindow : Window
     {
-        public ObservableView<ListItem> ListItemsView { get; private set; }
+        public ObservableView<Mall> ListItemsView { get; }
 
         public MainWindow()
         {
             this.InitializeComponent();
 
-            var listItems = new List<ListItem>
-            {
-                new ListItem { Title = "Groceries", Subtitle = "Buy bread, cheese, apples" },
-                new ListItem { Title = "Devices", Subtitle = "Buy Nexus, Galaxy, Droid" },
-                new ListItem { Title = "Toys", Subtitle = "Buy Lego" }
-            };
+            var listItems = MallManager.GetMalls();
 
-            this.ListItemsView = new ObservableView<ListItem>(listItems);
+            this.ListItemsView = new ObservableView<Mall>(listItems);
             this.ListItemsView.AddSearchSpecification(x => x.Title);
             this.ListItemsView.AddSearchSpecification(x => x.Subtitle);
 
