@@ -25,6 +25,7 @@ namespace HighlightMarkerSample.WPF
             this.ListItemsView.AddSearchSpecification(x => x.Title);
             this.ListItemsView.AddSearchSpecification(x => x.Subtitle);
 
+            this.searchBox.Focus();
             this.searchBox.TextChanged += this.OnSearchBoxTextChanged;
 
             this.DataContext = this;
