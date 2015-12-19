@@ -43,7 +43,28 @@ In the folder Samples\HighlightMarker.Forms you can find a Xamarin.Forms demo pr
 TODO: Document usage of ```TextViewExtensions```.
 
 #### Using HighlightMarker in Xamarin.iOS projects
-TODO: Document usage of ```UILabelExtensions```.
+The sample project HighlightMarkerSample.iOS illustrates how to use HighlightMarker in Xamarin.iOS projects. CustomTableViewCell (which is an implementation of UITableViewCell) is responsible for updating the highlighting. ```UILabelExtensions``` contains an extension method ```HighlightText``` which is used to highlight the text of a UILabel.
+```
+public class CustomTableViewCell : UITableViewCell
+{
+    private readonly UILabel headingLabel;
+    private readonly UILabel subheadingLabel;
+
+    public CustomTableViewCell(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
+    {
+       //...
+    }
+
+    public void UpdateCell(string caption, string subtitle, UIImage image, string searchText)
+    {
+        this.headingLabel.Text = caption;
+        this.headingLabel.HighlightText(searchText, UIColor.Blue);
+        this.subheadingLabel.Text = subtitle;
+        this.subheadingLabel.HighlightText(searchText, UIColor.Blue);
+    }
+    
+    //...
+```
 
 #### Using HighlightMarker in Windows Phone projects
 TODO: Document usage of ```TextBlockHighlighting``` and its attached dependency properties.
