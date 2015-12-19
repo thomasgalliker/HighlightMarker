@@ -123,7 +123,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HighlightMarker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.1.0.0\lib\xamarin.ios10\HighlightMarker.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.1.0.1\lib\xamarin.ios10\HighlightMarker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HighlightMarker.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\HighlightMarker.1.0.1\lib\xamarin.ios10\HighlightMarker.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
