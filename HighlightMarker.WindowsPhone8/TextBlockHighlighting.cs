@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
-#elif WINDOWS_PHONE_APP
+#elif WINDOWS_PHONE_APP || WINDOWS_APP
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Controls;
@@ -18,7 +18,7 @@ namespace HighlightMarker
             "FullText",
             typeof(string),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(null, OnTextChangedCallback));
+            new PropertyMetadata(string.Empty, OnTextChangedCallback));
 
         public static readonly DependencyProperty HighlightBrushProperty = DependencyProperty.RegisterAttached(
             "HighlightBrush",
@@ -30,7 +30,7 @@ namespace HighlightMarker
             "HighlightedText",
             typeof(string),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(""
+            new PropertyMetadata(string.Empty
 #if !WINDOWS_PHONE_APP
                 , OnTextChangedCallback // VERY STRANGE: Windows Phone 8.1 (w/o SL) crashes when this line is active
 #endif
@@ -74,8 +74,8 @@ namespace HighlightMarker
                 return;
             }
 
-            string fulltext = GetFullText(textBlock);
-            string highlightedText = GetHighlightedText(textBlock);
+            string fulltext = GetFullText(textBlock) ?? string.Empty;
+            string highlightedText = GetHighlightedText(textBlock) ?? string.Empty;
 
             textBlock.Inlines.Clear();
 
