@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
-
-using Windows.UI.Core;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+
+using HighlightMarkerSample.Data.Model;
 
 using ObservableView;
 
@@ -10,7 +10,7 @@ namespace HighlightMarkerSample.WPA81
 {
     public sealed partial class MainPage : Page
     {
-        public ObservableView<ListItem> ListItemsView { get; private set; }
+        public ObservableView<Mall> ListItemsView { get; }
 
         public MainPage()
         {
@@ -18,17 +18,13 @@ namespace HighlightMarkerSample.WPA81
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            var listItems = new Collection<ListItem>
-            {
-                new ListItem { Title = "Groceries", Subtitle = "Buy bread, cheese, apples" },
-                new ListItem { Title = "Devices", Subtitle = "Buy Nexus, Galaxy, Droid" },
-                new ListItem { Title = "Toys", Subtitle = "Buy Lego" }
-            };
+            var listItems = MallManager.GetMalls();
 
-            this.ListItemsView = new ObservableView<ListItem>(listItems);
+            this.ListItemsView = new ObservableView<Mall>(listItems);
             this.ListItemsView.AddSearchSpecification(x => x.Title);
             this.ListItemsView.AddSearchSpecification(x => x.Subtitle);
 
+            this.searchBox.Focus(FocusState.Keyboard);
             this.searchBox.TextChanged += this.OnSearchBoxTextChanged; // You could use SearchText data binding in XAML instead
 
             this.DataContext = this;
