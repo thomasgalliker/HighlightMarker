@@ -1,9 +1,9 @@
 # HighlightMarker
 HighlightMarker is a library which supports you in highlighting text of a UI label. This can be particularly helpful if you want to highlight the user's search input e.g. in a list of text items. 
 
-| Xamarin Android | WPF | Windows Store App 8.1 |
-| ------------- |-------------|-------------|
-| <img src="/Samples/Screenshot.Android.png" width="240"> | <img src="/Samples/Screenshot.WPF.png" width="240"> |<img src="/Samples/Screenshot.WindowsStore81.png" width="240"> |
+| Xamarin Android | Xamarin iOS | WPF | Windows Store App 8.1 |
+| ----------------|-------------|-----|-----------------------|
+| <img src="/Samples/Screenshot.Android.png" width="190"> | <img src="/Samples/Screenshot.iOS.png" width="190"> | <img src="/Samples/Screenshot.WPF.png" width="190"> |<img src="/Samples/Screenshot.WindowsStore81.png" width="190"> |
 
 ### Download and Install HighlightMarker
 This library is available on NuGet: https://www.nuget.org/packages/HighlightMarker/
@@ -42,7 +42,7 @@ In the folder Samples\HighlightMarker.Forms you can find a Xamarin.Forms demo pr
 ```
 
 #### Using HighlightMarker in Xamarin.Android projects
-TODO: Document usage of ```TextViewExtensions```.
+Create a custom ListFragment and update each list item's content (which can be a custom FrameLayouts for example) when the highlight text has changed. There is an extension method  ```TextViewExtensions.HighlightText``` for highlighting the text of a ```TextView``` object.
 
 #### Using HighlightMarker in Xamarin.iOS projects
 The sample project HighlightMarkerSample.iOS illustrates how to use HighlightMarker in Xamarin.iOS projects. CustomTableViewCell (which is an implementation of UITableViewCell) is responsible for updating the highlighting. ```UILabelExtensions``` contains an extension method ```HighlightText``` which is used to highlight the text of a UILabel.
