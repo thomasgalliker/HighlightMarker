@@ -29,8 +29,8 @@ namespace HighlightMarkerSample.WPA81
             this.ListItemsView.AddSearchSpecification(x => x.Title);
             this.ListItemsView.AddSearchSpecification(x => x.Subtitle);
 
-            this.searchBox.TextChanged += this.OnSearchBoxTextChanged;
-            
+            this.searchBox.TextChanged += this.OnSearchBoxTextChanged; // You could use SearchText data binding in XAML instead
+
             this.DataContext = this;
         }
 
