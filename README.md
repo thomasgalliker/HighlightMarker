@@ -42,7 +42,7 @@ In the folder Samples\HighlightMarker.Forms you can find a Xamarin.Forms demo pr
 ```
 
 #### Using HighlightMarker in Xamarin.Android projects
-TODO: Document usage of ```TextViewExtensions```.
+Create a custom ListFragment and update each list item's content (which can be a custom FrameLayouts for example) when the highlight text has changed. There is an extension method  ```TextViewExtensions.HighlightText``` for highlighting the text of a ```TextView``` object.
 
 #### Using HighlightMarker in Xamarin.iOS projects
 The sample project HighlightMarkerSample.iOS illustrates how to use HighlightMarker in Xamarin.iOS projects. CustomTableViewCell (which is an implementation of UITableViewCell) is responsible for updating the highlighting. ```UILabelExtensions``` contains an extension method ```HighlightText``` which is used to highlight the text of a UILabel.
