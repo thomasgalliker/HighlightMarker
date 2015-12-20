@@ -16,53 +16,55 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <TextBlock
-            Grid.Row="0" 
-            Grid.Column="0" 
-            Text="Search"
-            FontFamily="Verdana"
-            FontSize="20"
-            FontStretch="UltraExpanded"
-            FontStyle="Italic"
-            FontWeight="ExtraBlack"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left"/>
-        <TextBox
-            Grid.Row="0" 
-            Grid.Column="1" 
-            x:Name="searchBox"
-            Text=""
-            HorizontalAlignment="Left" 
-            Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
-        <ScrollViewer   
-            Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="2" >
-            <ListView 
-                ItemsSource="{Binding ListItemsView.View}"
-                HorizontalAlignment="Left"
-                HorizontalContentAlignment="Left"
-                VerticalAlignment="Top" Height="Auto" Width="300" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <!--Title-->
-                            <TextBlock 
+        <TextBlock Grid.Row="0" 
+                   Grid.Column="0" 
+                   Text="Search"
+                   FontFamily="Verdana"
+                   FontSize="20"
+                   FontStretch="UltraExpanded"
+                   FontStyle="Italic"
+                   FontWeight="ExtraBlack"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"/>
+        
+        <TextBox Grid.Row="0" 
+                 Grid.Column="1" 
+                 x:Name="searchBox"
+                 Text=""
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 Width="275"/>
+
+        <ListView Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  ItemsSource="{Binding ListItemsView.View}"
+                  HorizontalAlignment="Left"
+                  HorizontalContentAlignment="Left"
+                  VerticalAlignment="Top" 
+                  Height="Auto" 
+                  Width="300" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <!--Title-->
+                        <TextBlock 
                                 highlightMarker:TextBlockHighlighting.FullText="{Binding Title}" 
                                 highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
                                 TextWrapping="Wrap"
                                 FontSize="16"/>
-                            <!--Subtitle-->
-                            <TextBlock 
+                        <!--Subtitle-->
+                        <TextBlock 
                                 highlightMarker:TextBlockHighlighting.FullText="{Binding Subtitle}" 
                                 highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
                                 TextWrapping="Wrap"
                                 FontSize="12"
                                  Margin="12,-6,12,0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

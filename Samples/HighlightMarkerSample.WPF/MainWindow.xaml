@@ -17,8 +17,16 @@
                  VerticalAlignment="Top" 
                  Width="447"/>
         
-        <Label Content="Search" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
-        <ListView ItemsSource="{Binding ListItemsView.View}" HorizontalAlignment="Left" Height="271" Margin="10,38,0,0" VerticalAlignment="Top" Width="497">
+        <Label Content="Search" 
+               HorizontalAlignment="Left" 
+               Margin="10,6,0,0" 
+               VerticalAlignment="Top"/>
+        <ListView ItemsSource="{Binding ListItemsView.View}" 
+                  HorizontalAlignment="Left" 
+                  Height="271" 
+                  Margin="10,38,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="497">
             <ListView.View>
                 <GridView >
                     <!--Title-->
