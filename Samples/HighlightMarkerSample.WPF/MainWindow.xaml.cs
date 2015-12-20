@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 using HighlightMarkerSample.Data.Model;
 
@@ -23,14 +21,16 @@ namespace HighlightMarkerSample.WPF
             this.ListItemsView.AddSearchSpecification(x => x.Subtitle);
 
             this.searchBox.Focus();
-            this.searchBox.TextChanged += this.OnSearchBoxTextChanged;
+
+            
+            // In this example we use the binding Text = "{Binding ListItemsView.SearchText, Mode=TwoWay}"
+            // in order to bind the searchBox.Text to the SearchText property of the ObservableView< Mall >.
+            // Therefore, the following OnSearchBoxTextChanged event handler can be removed:
+
+            // this.searchBox.TextChanged += this.OnSearchBoxTextChanged;
+            
 
             this.DataContext = this;
-        }
-
-        private void OnSearchBoxTextChanged(object sender, TextChangedEventArgs e)
-        {
-            this.ListItemsView.Search(((TextBox)e.Source).Text);
         }
     }
 }

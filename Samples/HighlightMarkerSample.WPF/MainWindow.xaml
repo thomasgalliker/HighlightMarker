@@ -8,7 +8,15 @@
         ResizeMode="NoResize"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="60,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="447"/>
+        <TextBox x:Name="searchBox"
+                 Text="{Binding ListItemsView.SearchText, Mode=TwoWay}"
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="60,10,0,0" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top" 
+                 Width="447"/>
+        
         <Label Content="Search" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
         <ListView ItemsSource="{Binding ListItemsView.View}" HorizontalAlignment="Left" Height="271" Margin="10,38,0,0" VerticalAlignment="Top" Width="497">
             <ListView.View>
