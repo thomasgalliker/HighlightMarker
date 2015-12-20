@@ -17,6 +17,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+        
         <TextBlock
             Grid.Row="0" 
             Grid.Column="0" 
@@ -29,6 +30,7 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Margin="0, 0, 50, 0"/>
+        
         <TextBox
             Grid.Row="0" 
             Grid.Column="1" 
@@ -36,35 +38,37 @@
             Text=""
             HorizontalAlignment="Left" 
             Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="275"/>
-        <ScrollViewer   
-            Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="2" >
-            <ListView 
-                ItemsSource="{Binding ListItemsView.View}"
-                HorizontalAlignment="Left"
-                HorizontalContentAlignment="Left"
-                VerticalAlignment="Top" Height="Auto" Width="300" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <!--Title-->
-                            <TextBlock 
-                                highlightMarker:TextBlockHighlighting.FullText="{Binding Title}" 
-                                highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
-                                TextWrapping="Wrap"
-                                FontSize="16"/>
-                            <!--Subtitle-->
-                            <TextBlock 
-                                highlightMarker:TextBlockHighlighting.FullText="{Binding Subtitle}" 
-                                highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
-                                TextWrapping="Wrap"
-                                FontSize="12"
-                                 Margin="12,-6,12,0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>
+
+        <ListView Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2" 
+                  ItemsSource="{Binding ListItemsView.View}"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top" 
+                  Height="Auto" 
+                  Width="Auto">
+            
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection/> <!--Turns off flickering animation when ListItemsView.View is refreshed-->
+            </ListView.ItemContainerTransitions>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <!--Title-->
+                        <TextBlock highlightMarker:TextBlockHighlighting.FullText="{Binding Title}" 
+                                   highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
+                                   TextWrapping="Wrap"
+                                   FontSize="16"/>
+                        <!--Subtitle-->
+                        <TextBlock highlightMarker:TextBlockHighlighting.FullText="{Binding Subtitle}" 
+                                   highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
+                                   TextWrapping="Wrap"
+                                   FontSize="12"
+                                   Margin="12,-6,12,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
