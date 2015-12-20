@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-using HighlightMarkerSample.WPF.Model;
+using HighlightMarkerSample.Data.Model;
 
 using ObservableView;
 
