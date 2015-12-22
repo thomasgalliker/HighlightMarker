@@ -101,11 +101,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ObservableView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ObservableView.1.0.2-pre2\lib\xamarin.ios10\ObservableView.dll</HintPath>
+      <HintPath>..\..\packages\ObservableView.1.0.2-pre3\lib\xamarin.ios10\ObservableView.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ObservableView.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ObservableView.1.0.2-pre2\lib\xamarin.ios10\ObservableView.Platform.dll</HintPath>
+      <HintPath>..\..\packages\ObservableView.1.0.2-pre3\lib\xamarin.ios10\ObservableView.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

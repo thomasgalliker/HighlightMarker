@@ -50,11 +50,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.1.0.1\lib\monoandroid10\HighlightMarker.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.1.0.2-pre1\lib\monoandroid10\HighlightMarker.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.1.0.1\lib\monoandroid10\HighlightMarker.Platform.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.1.0.2-pre1\lib\monoandroid10\HighlightMarker.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Mono.Android" />

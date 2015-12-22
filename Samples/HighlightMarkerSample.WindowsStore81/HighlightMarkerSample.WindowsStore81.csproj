@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ObservableView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ObservableView.1.0.2-pre2\lib\win81\ObservableView.dll</HintPath>
+      <HintPath>..\..\packages\ObservableView.1.0.2-pre3\lib\win81\ObservableView.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
