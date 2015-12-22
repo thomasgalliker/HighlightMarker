@@ -8,7 +8,7 @@ namespace HighlightMarkerSample.WPF
 {
     public partial class MainWindow : Window
     {
-        public ObservableView<Mall> ListItemsView { get; }
+        public ObservableView<Mall> ListItemsView { get; private set; }
 
         public MainWindow()
         {
