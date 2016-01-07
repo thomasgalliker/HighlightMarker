@@ -21,7 +21,7 @@
     <releaseNotes>
       - Rename SearchTextHighlighting to TextBlockHighlighting in Windows Phone 8 library
     </releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <copyright>Copyright 2016</copyright>
     <language>en-US</language>
     <dependencies>
     </dependencies>
