@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker</id>
-    <version>1.0.2-pre1</version>
+    <version>1.0.2-pre2</version>
     <title>HighlightMarker</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -19,6 +19,10 @@
       windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
     </tags>
     <releaseNotes>
+      1.0.2-pre2
+      - Add TextBlockHighlighting for Windows Store Apps
+      
+      1.0.2-pre1
       - Rename SearchTextHighlighting to TextBlockHighlighting in Windows Phone 8 library
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
@@ -81,9 +85,9 @@
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\wpa81\HighlightMarker.xml" />
 
     <!--Windows Store-->
-    <!--<file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.dll" target="lib\win81\HighlightMarker.Platform.dll" />
+    <file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.dll" target="lib\win81\HighlightMarker.Platform.dll" />
     <file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.pdb" target="lib\win81\HighlightMarker.Platform.pdb" />
-    <file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.xml" target="lib\win81\HighlightMarker.Platform.xml" />-->
+    <file src="..\HighlightMarker.WindowsStore\Bin\Release\HighlightMarker.Platform.xml" target="lib\win81\HighlightMarker.Platform.xml" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.dll" target="lib\win81\HighlightMarker.dll" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.pdb" target="lib\win81\HighlightMarker.pdb" />
     <file src="..\HighlightMarker\bin\Release\HighlightMarker.xml" target="lib\win81\HighlightMarker.xml" />
