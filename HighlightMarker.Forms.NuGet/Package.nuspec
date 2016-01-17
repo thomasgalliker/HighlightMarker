@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker.Forms</id>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
     <title>HighlightMarker.Forms</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -18,12 +18,36 @@
       windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
     </tags>
     <releaseNotes>
-      This is the initial release of HighlightMarker.Forms. Please report problems here: https://github.com/thomasgalliker/HighlightMarker.
-      Contributions on github are welcome!
+      1.0.3
+      - Bug fix for nuget dependencies
+      
+      1.0.0
+      - Initial release
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
     <language>en-US</language>
     <dependencies>
+      <group targetFramework="monotouch10">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
+      <group targetFramework="xamarin.ios10">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
+      <group targetFramework="monoandroid10">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
+      <group targetFramework="wp8">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
+      <group targetFramework="wpa81">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
+      <group targetFramework="win81">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
+      <group targetFramework="portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10">
+        <dependency id="HighlightMarker" version="1.0.2" />
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -32,6 +56,36 @@
     <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10\HighlightMarker.Forms.pdb" />
     <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\portable-net45+dnxcore50+wp80+wpa81+win81+netcore45+monoandroid10+monotouch10+xamarin.ios10\HighlightMarker.Forms.xml" />
     
+    <!--Xamarin.Android-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\monoandroid10\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\monoandroid10\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\monoandroid10\HighlightMarker.Forms.xml" />
+
+    <!--Xamarin.iOS Classic API-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\monotouch10\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\monotouch10\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\monotouch10\HighlightMarker.Forms.xml" />
+
+    <!--Xamarin.iOS Unified API-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\xamarin.ios10\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\xamarin.ios10\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\xamarin.ios10\HighlightMarker.Forms.xml" />
+
+    <!--Windows Phone 8-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\wp8\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\wp8\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\wp8\HighlightMarker.Forms.xml" />
+
+    <!--Windows Phone 8.1-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\wpa81\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\wpa81\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\wpa81\HighlightMarker.Forms.xml" />
+    
+    <!--Windows Store-->
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.dll" target="lib\win81\HighlightMarker.Forms.dll" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.pdb" target="lib\win81\HighlightMarker.Forms.pdb" />
+    <file src="..\HighlightMarker.Forms\bin\Release\HighlightMarker.Forms.xml" target="lib\win81\HighlightMarker.Forms.xml" />
+
     <file src="tools\init.ps1" target="tools\init.ps1" />
     <file src="tools\install.ps1" target="tools\install.ps1" />
     <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker</id>
-    <version>1.0.2-pre2</version>
+    <version>1.0.2</version>
     <title>HighlightMarker</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -19,11 +19,12 @@
       windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
     </tags>
     <releaseNotes>
-      1.0.2-pre2
+      1.0.2
       - Add TextBlockHighlighting for Windows Store Apps
-      
-      1.0.2-pre1
       - Rename SearchTextHighlighting to TextBlockHighlighting in Windows Phone 8 library
+      
+      1.0.0
+      - Initial release
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
     <language>en-US</language>

@@ -154,17 +154,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HighlightMarkerSample.Forms\HighlightMarkerSample.Forms.csproj">
-      <Name>HighlightMarkerSample.Forms</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="HighlightMarker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.1.0.2-pre1\lib\wp8\HighlightMarker.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.1.0.2\lib\wp8\HighlightMarker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HighlightMarker.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\HighlightMarker.Forms.1.0.3\lib\wp8\HighlightMarker.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.1.0.2-pre1\lib\wp8\HighlightMarker.Platform.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.1.0.2\lib\wp8\HighlightMarker.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
@@ -187,6 +186,12 @@
       <HintPath>..\..\..\packages\Xamarin.Forms.2.0.1.6492-pre1\lib\WP80\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HighlightMarkerSample.Forms\HighlightMarkerSample.Forms.csproj">
+      <Project>{8e49c919-4740-4330-8c8c-a3881efdb41c}</Project>
+      <Name>HighlightMarkerSample.Forms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

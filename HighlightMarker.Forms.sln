@@ -175,7 +175,9 @@ Global
 		{A903E561-889D-406F-BE66-916C8573F837}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{A903E561-889D-406F-BE66-916C8573F837}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{A903E561-889D-406F-BE66-916C8573F837}.Debug|iPhoneSimulator.Deploy.0 = Debug|Any CPU
-		{A903E561-889D-406F-BE66-916C8573F837}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A903E561-889D-406F-BE66-916C8573F837}.Debug|Mixed Platforms.ActiveCfg = Debug|ARM
+		{A903E561-889D-406F-BE66-916C8573F837}.Debug|Mixed Platforms.Build.0 = Debug|ARM
+		{A903E561-889D-406F-BE66-916C8573F837}.Debug|Mixed Platforms.Deploy.0 = Debug|ARM
 		{A903E561-889D-406F-BE66-916C8573F837}.Debug|x86.ActiveCfg = Debug|x86
 		{A903E561-889D-406F-BE66-916C8573F837}.Debug|x86.Build.0 = Debug|x86
 		{A903E561-889D-406F-BE66-916C8573F837}.Debug|x86.Deploy.0 = Debug|x86
@@ -192,6 +194,8 @@ Global
 		{A903E561-889D-406F-BE66-916C8573F837}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{A903E561-889D-406F-BE66-916C8573F837}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
 		{A903E561-889D-406F-BE66-916C8573F837}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A903E561-889D-406F-BE66-916C8573F837}.Release|Mixed Platforms.Build.0 = Release|x86
+		{A903E561-889D-406F-BE66-916C8573F837}.Release|Mixed Platforms.Deploy.0 = Release|x86
 		{A903E561-889D-406F-BE66-916C8573F837}.Release|x86.ActiveCfg = Release|x86
 		{A903E561-889D-406F-BE66-916C8573F837}.Release|x86.Build.0 = Release|x86
 		{A903E561-889D-406F-BE66-916C8573F837}.Release|x86.Deploy.0 = Release|x86
@@ -275,7 +279,6 @@ Global
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|x86.Build.0 = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
