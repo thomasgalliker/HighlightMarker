@@ -75,7 +75,7 @@ TODO: Document usage of ```TextBlockHighlighting``` and its attached dependency 
 Let me know your optinion and how we can improve this project. You are kindly invited to write an issue if you want to discuss problems and/or propose new features. Contributors are highly welcome!
 
 ### License
-HighlightMarker is Copyright &copy; 2015 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
+HighlightMarker is Copyright &copy; 2016 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
 
 ### Sources
 
