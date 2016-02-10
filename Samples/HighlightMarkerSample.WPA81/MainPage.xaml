@@ -5,8 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:highlightMarker="using:HighlightMarker"
+    xmlns:processors="using:HighlightMarkerSample.Data.Processors"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <processors:DiacriticsRemovalProcessor x:Key="DiacriticsRemovalProcessor"/>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -52,12 +58,14 @@
                         <!--Title-->
                         <TextBlock 
                                 highlightMarker:TextBlockHighlighting.FullText="{Binding Title}" 
+                                highlightMarker:TextBlockHighlighting.HighlightProcessor="{StaticResource DiacriticsRemovalProcessor}"
                                 highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
                                 TextWrapping="Wrap"
                                 FontSize="16"/>
                         <!--Subtitle-->
                         <TextBlock 
                                 highlightMarker:TextBlockHighlighting.FullText="{Binding Subtitle}" 
+                                highlightMarker:TextBlockHighlighting.HighlightProcessor="{StaticResource DiacriticsRemovalProcessor}"
                                 highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}" 
                                 TextWrapping="Wrap"
                                 FontSize="12"

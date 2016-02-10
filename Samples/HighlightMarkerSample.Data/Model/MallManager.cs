@@ -16,6 +16,7 @@ namespace HighlightMarkerSample.Data.Model
             Malls = new ObservableCollection<Mall>
                           {
                               new Mall("Abercrombie & Fitch / abercrombie kids", "Level 2 | (480) 792-9275"),
+                              new Mall("Abércrombià Zürich", "Level 2 | (480) 792-9275"),
                               new Mall("ALDO", "Level 2 | (480) 899-0803"),
                               new Mall("All Mobile Matters Mobile Phone Repair & More", "Level 2 | (480) 228-9690"),
                               new Mall("Alterations By L", "Level 1 | (480) 786-8092"),

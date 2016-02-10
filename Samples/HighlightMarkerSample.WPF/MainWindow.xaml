@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:highlightMarker="clr-namespace:HighlightMarker;assembly=HighlightMarker.Platform"
+        xmlns:processors="clr-namespace:HighlightMarkerSample.Data.Processors;assembly=HighlightMarkerSample.Data"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <processors:DiacriticsRemovalProcessor x:Key="DiacriticsRemovalProcessor"/>
+    </Window.Resources>
     <Grid>
         <TextBox x:Name="searchBox"
                  Text="{Binding ListItemsView.SearchText, Mode=TwoWay}"
@@ -34,6 +38,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock highlightMarker:TextBlockHighlighting.FullText="{Binding Title}"
+                                           highlightMarker:TextBlockHighlighting.HighlightProcessor="{StaticResource DiacriticsRemovalProcessor}"
                                            highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}"
                                            TextAlignment="Right" Width="Auto" />
                             </DataTemplate>
@@ -45,6 +50,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock highlightMarker:TextBlockHighlighting.FullText="{Binding Subtitle}"
+                                           highlightMarker:TextBlockHighlighting.HighlightProcessor="{StaticResource DiacriticsRemovalProcessor}"
                                            highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}"
                                            TextAlignment="Right" Width="Auto" />
                             </DataTemplate>
