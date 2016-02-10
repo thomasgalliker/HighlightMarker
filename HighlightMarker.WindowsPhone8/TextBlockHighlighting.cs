@@ -14,27 +14,42 @@ namespace HighlightMarker
 {
     public class TextBlockHighlighting : DependencyObject
     {
+        /// <summary>
+        /// FullText property is used to bind to the content which is normally bound to TextBlock.Text.
+        /// </summary>
         public static readonly DependencyProperty FullTextProperty = DependencyProperty.RegisterAttached(
             "FullText",
             typeof(string),
             typeof(TextBlockHighlighting),
             new PropertyMetadata(string.Empty, OnTextChangedCallback));
 
+        /// <summary>
+        /// The color used for text highlighting.
+        /// </summary>
         public static readonly DependencyProperty HighlightBrushProperty = DependencyProperty.RegisterAttached(
             "HighlightBrush",
             typeof(Brush),
             typeof(TextBlockHighlighting),
             new PropertyMetadata(null, OnTextChangedCallback));
 
+        /// <summary>
+        /// HighlightedText is usually bound to the highlighter source, which may be the Text property of a search box.
+        /// </summary>
         public static readonly DependencyProperty HighlightedTextProperty = DependencyProperty.RegisterAttached(
             "HighlightedText",
             typeof(string),
             typeof(TextBlockHighlighting),
             new PropertyMetadata(string.Empty
 #if !WINDOWS_PHONE_APP
-                , OnTextChangedCallback // VERY STRANGE: Windows Phone 8.1 (w/o SL) crashes when this line is active
+                , OnTextChangedCallback // BUG: VERY STRANGE: Windows Phone 8.1 (w/o SL) crashes when this line is active
 #endif
             ));
+
+        public static readonly DependencyProperty HighlightProcessorProperty = DependencyProperty.RegisterAttached(
+            "HighlightProcessor",
+            typeof(IHighlightProcessor),
+            typeof(TextBlockHighlighting),
+            new PropertyMetadata(null));
 
         public static string GetFullText(TextBlock element)
         {
@@ -66,6 +81,16 @@ namespace HighlightMarker
             d.SetValue(HighlightedTextProperty, value);
         }
 
+        public static IHighlightProcessor GetHighlightProcessor(DependencyObject d)
+        {
+            return (IHighlightProcessor)d.GetValue(HighlightProcessorProperty);
+        }
+
+        public static void SetHighlightProcessor(DependencyObject d, IHighlightProcessor value)
+        {
+            d.SetValue(HighlightProcessorProperty, value);
+        }
+
         private static void OnTextChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var textBlock = d as TextBlock;
@@ -86,8 +111,9 @@ namespace HighlightMarker
             }
 
             var foregroundBrush = GetHighlightBrush(textBlock) ?? ColorHelper.GetDefaultHighlightBrush();
+            var highlightProcessor = GetHighlightProcessor(textBlock);
 
-            var highlightMarker = new HighlightMarker(fulltext, highlightedText);
+            var highlightMarker = new HighlightMarker(fulltext, highlightedText, highlightProcessor);
 
             foreach (var current in highlightMarker)
             {
