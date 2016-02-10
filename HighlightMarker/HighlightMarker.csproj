@@ -39,6 +39,7 @@
     <Compile Include="EnumeratorExtensions.cs" />
     <Compile Include="HighlightIndex.cs" />
     <Compile Include="HighlightMarker.cs" />
+    <Compile Include="IHighlightProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
   </ItemGroup>

@@ -131,7 +131,7 @@ namespace HighlightMarker.Tests
             // Arrange
             const string FullText = "full text for highlight marking";
             const string SearchText = "full, for;king";
-            var highlightMarker = new HighlightMarker(FullText, SearchText, new[] { ',', ';' });
+            var highlightMarker = new HighlightMarker(FullText, SearchText, highlightProcessor: null, searchTextDelimiters: new[] { ',', ';' });
 
             // Act
             var highlightList = highlightMarker.ToList();
@@ -147,11 +147,55 @@ namespace HighlightMarker.Tests
             AssertHighlightIndex(highlightList.ElementAt(4), fromIndex: 27, length: 4, isHighlighted: true);
         }
 
+        [Fact]
+        public void ShouldSupportHighlightProcessor()
+        {
+            // Arrange
+            const string FullText = "ääääää";
+            const string SearchText = "a";
+            var highlightMarkerWithoutProcessors = new HighlightMarker(FullText, SearchText);
+            var highlightMarkerWithTestProcessor = new HighlightMarker(FullText, SearchText, highlightProcessor: new TestHighlightProcessor("ä", "a"));
+
+            // Act
+            var highlightListWithoutProcessing = highlightMarkerWithoutProcessors.ToList();
+            var highlightListWithProcessing = highlightMarkerWithTestProcessor.ToList();
+
+            // Assert
+            highlightListWithoutProcessing.Should().NotBeNull();
+            highlightListWithoutProcessing.Should().HaveCount(1);
+            AssertHighlightIndex(highlightListWithoutProcessing.ElementAt(0), fromIndex: 0, length: 6, isHighlighted: false);
+
+            highlightListWithProcessing.Should().NotBeNull();
+            highlightListWithProcessing.Should().HaveCount(1);
+            AssertHighlightIndex(highlightListWithProcessing.ElementAt(0), fromIndex: 0, length: 6, isHighlighted: true);
+        }
+
         private static void AssertHighlightIndex(HighlightIndex highlightIndex, int fromIndex, int length, bool isHighlighted)
         {
             highlightIndex.FromIndex.Should().Be(fromIndex);
             highlightIndex.Length.Should().Be(length);
             highlightIndex.IsHighlighted.Should().Be(isHighlighted);
+        }
+    }
+
+    public class TestHighlightProcessor : IHighlightProcessor
+    {
+        private readonly string searchText;
+        private readonly string replaceText;
+
+        public TestHighlightProcessor(string searchText, string replaceText)
+        {
+            this.searchText = searchText;
+            this.replaceText = replaceText;
+        }
+
+        public string[] GetFulltextItems(string fulltext)
+        {
+            return new []
+            {
+                fulltext,
+                fulltext.Replace(this.searchText, this.replaceText)
+            };
         }
     }
 }

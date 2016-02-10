@@ -7,13 +7,17 @@ namespace HighlightMarker
 {
     public class HighlightMarker : IEnumerable<HighlightIndex>
     {
+        private readonly IHighlightProcessor highlightProcessor;
+
         private IList<Range> index;
         private string searchText;
         private char[] searchTextDelimiters = { ' ' };
 
-        public HighlightMarker(string fullText, string searchText, char[] searchTextDelimiters = null)
+        public HighlightMarker(string fullText, string searchText, IHighlightProcessor highlightProcessor = null, char[] searchTextDelimiters = null)
         {
             this.index = new List<Range>();
+            this.highlightProcessor = highlightProcessor;
+
             this.FullText = fullText;
             this.SearchText = searchText;
 
@@ -112,10 +116,10 @@ namespace HighlightMarker
 
         private void UpdateIndex()
         {
-            this.index = CreateIndex(this.FullText, this.SearchText, this.SearchTextDelimiters);
+            this.index = CreateIndex(this.FullText, this.SearchText, this.highlightProcessor, this.SearchTextDelimiters);
         }
 
-        private static IList<Range> CreateIndex(string fulltext, string searchtext, char[] delimiters)
+        private static IList<Range> CreateIndex(string fulltext, string searchtext, IHighlightProcessor processor, char[] delimiters)
         {
             if (string.IsNullOrEmpty(searchtext))
             {
@@ -124,13 +128,28 @@ namespace HighlightMarker
 
             var index = new List<Range>();
             var searchStrings = searchtext.Trim().Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-            var fullTextItems = new List<string> { fulltext };
+            var fullTextItems = new List<string>();
 
+            // Process fulltext using the configured highlight processor(s)
+            if (processor == null)
+            {
+                fullTextItems.Add(fulltext);
+            }
+            else
+            {
+                var processedStrings = processor.GetFulltextItems(fulltext);
+                if (processedStrings != null && processedStrings.Length > 0)
+                {
+                    fullTextItems.AddRange(processedStrings);
+                }
+            }
+
+            // Build highlighting index
             foreach (string searchString in searchStrings)
             {
                 int length = searchString.Length;
 
-                foreach (var fullTextItem in fullTextItems)
+                foreach (var fullTextItem in fullTextItems.Distinct())
                 {
                     int searchStringIndex = fullTextItem.IndexOf(searchString, 0, StringComparison.CurrentCultureIgnoreCase);
 
