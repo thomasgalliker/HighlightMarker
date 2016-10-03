@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 using Xamarin.Forms;
 
 namespace HighlightMarker.Forms
@@ -11,7 +10,7 @@ namespace HighlightMarker.Forms
                defaultValue: null,
                defaultBindingMode: BindingMode.OneWay,
                validateValue: null,
-               propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b, o, n),
+               propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
                propertyChanging: null,
                coerceValue: null);
 
@@ -20,9 +19,27 @@ namespace HighlightMarker.Forms
               defaultValue: null,
               defaultBindingMode: BindingMode.OneWay,
               validateValue: null,
-              propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b, o, n),
+              propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
               propertyChanging: null,
               coerceValue: null);
+
+        public static readonly BindableProperty ForegroundProperty = BindableProperty.CreateAttached<TextHighlightBehavior, Color>(
+            staticgetter: bindable => TextHighlightBehavior.GetForeground(bindable),
+            defaultValue: Color.Accent,
+            defaultBindingMode: BindingMode.OneWay,
+            validateValue: null,
+            propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
+            propertyChanging: null,
+            coerceValue: null);
+
+        public static readonly BindableProperty BackgroundProperty = BindableProperty.CreateAttached<TextHighlightBehavior, Color>(
+             staticgetter: bindable => TextHighlightBehavior.GetBackground(bindable),
+             defaultValue: Color.Transparent,
+             defaultBindingMode: BindingMode.OneWay,
+             validateValue: null,
+             propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
+             propertyChanging: null,
+             coerceValue: null);
 
         public static string GetFullText(BindableObject bo)
         {
@@ -44,24 +61,46 @@ namespace HighlightMarker.Forms
             bo.SetValue(TextHighlightBehavior.HighlightedTextProperty, value);
         }
 
-        private static void OnTextPropertyChanged(BindableObject bindableObject, string oldValue, string newValue)
+        public static Color GetForeground(BindableObject bo)
+        {
+            return (Color)bo.GetValue(TextHighlightBehavior.ForegroundProperty);
+        }
+
+        public static void SetForeground(BindableObject bo, Color value)
+        {
+            bo.SetValue(TextHighlightBehavior.ForegroundProperty, value);
+        }
+
+        public static Color GetBackground(BindableObject bo)
+        {
+            return (Color)bo.GetValue(TextHighlightBehavior.BackgroundProperty);
+        }
+
+        public static void SetBackground(BindableObject bo, Color value)
+        {
+            bo.SetValue(TextHighlightBehavior.BackgroundProperty, value);
+        }
+
+        private static void OnTextPropertyChanged(BindableObject bindableObject/*, string oldValue, string newValue*/)
         {
             var label = bindableObject as Label;
             if (label == null)
             {
                 return;
             }
+
             string fulltext = GetFullText(label);
             string highlightedText = GetHighlightedText(label);
 
             if (string.IsNullOrEmpty(fulltext) || string.IsNullOrEmpty(highlightedText))
             {
-                // Clear search text highlighting
+                // Clear text highlighting
                 label.Text = fulltext;
                 return;
             }
 
-            Color foregroundColor = Color.Accent; //GetHighlightBrush(textBlock) ?? new SolidColorBrush((Color)Application.Current.Resources["PhoneAccentColor"]);
+            Color foregroundColor = GetForeground(label);
+            Color backgroundColor = GetBackground(label);
 
             label.FormattedText = string.Empty;
 
@@ -69,21 +108,25 @@ namespace HighlightMarker.Forms
 
             using (var enumerator = highlightMarker.GetEnumerator())
             {
+                var formattedText = new FormattedString();
+
                 while (enumerator.MoveNext())
                 {
                     int fromIndex = enumerator.Current.FromIndex;
                     int length = enumerator.Current.Length;
                     bool isHighlighted = enumerator.Current.IsHighlighted;
 
+                    var span = new Span { Text = fulltext.Substring(fromIndex, length) };
                     if (isHighlighted)
                     {
-                        label.FormattedText.Spans.Add(new Span { Text = fulltext.Substring(fromIndex, length), ForegroundColor = foregroundColor });
+                        span.ForegroundColor = foregroundColor;
+                        span.BackgroundColor = backgroundColor;
                     }
-                    else
-                    {
-                        label.FormattedText.Spans.Add(new Span { Text = fulltext.Substring(fromIndex, length) });
-                    }
+
+                    formattedText.Spans.Add(span);
                 }
+
+                label.FormattedText = formattedText;
             }
         }
     }

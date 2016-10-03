@@ -100,6 +100,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\HighlightMarker.Forms\HighlightMarker.Forms.csproj">
+      <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
+      <Name>HighlightMarker.Forms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HighlightMarkerSample.Forms\HighlightMarkerSample.Forms.csproj">
       <Name>HighlightMarkerSample.Forms</Name>
     </ProjectReference>
@@ -125,10 +129,6 @@
   <ItemGroup>
     <Reference Include="HighlightMarker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\HighlightMarker.1.0.3\lib\xamarin.ios10\HighlightMarker.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HighlightMarker.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.Forms.1.0.3\lib\xamarin.ios10\HighlightMarker.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
