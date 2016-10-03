@@ -3,11 +3,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+
 #elif WINDOWS_PHONE_APP || WINDOWS_APP
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
+using Windows.UI.Xaml.Media;
 #endif
 
 namespace HighlightMarker
@@ -15,7 +16,7 @@ namespace HighlightMarker
     public class TextBlockHighlighting : DependencyObject
     {
         /// <summary>
-        /// FullText property is used to bind to the content which is normally bound to TextBlock.Text.
+        ///     FullText property is used to bind to the content which is normally bound to TextBlock.Text.
         /// </summary>
         public static readonly DependencyProperty FullTextProperty = DependencyProperty.RegisterAttached(
             "FullText",
@@ -24,26 +25,37 @@ namespace HighlightMarker
             new PropertyMetadata(string.Empty, OnTextChangedCallback));
 
         /// <summary>
-        /// The color used for text highlighting.
+        ///     The foreground color used for text highlighting.
         /// </summary>
-        public static readonly DependencyProperty HighlightBrushProperty = DependencyProperty.RegisterAttached(
-            "HighlightBrush",
+        public static readonly DependencyProperty ForegroundProperty = DependencyProperty.RegisterAttached(
+            "Foreground",
             typeof(Brush),
             typeof(TextBlockHighlighting),
             new PropertyMetadata(null, OnTextChangedCallback));
 
         /// <summary>
-        /// HighlightedText is usually bound to the highlighter source, which may be the Text property of a search box.
+        ///     The background color used for text highlighting.
+        /// </summary>
+        public static readonly DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached(
+            "Background",
+            typeof(Brush),
+            typeof(TextBlockHighlighting),
+            new PropertyMetadata(null, OnTextChangedCallback));
+
+        /// <summary>
+        ///     HighlightedText is usually bound to the highlighter source, which may be the Text property of a search box.
         /// </summary>
         public static readonly DependencyProperty HighlightedTextProperty = DependencyProperty.RegisterAttached(
             "HighlightedText",
             typeof(string),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(string.Empty
+            new PropertyMetadata(
+                string.Empty
 #if !WINDOWS_PHONE_APP
-                , OnTextChangedCallback // BUG: VERY STRANGE: Windows Phone 8.1 (w/o SL) crashes when this line is active
+                ,
+                OnTextChangedCallback // BUG: VERY STRANGE: Windows Phone 8.1 (w/o SL) crashes when this line is active
 #endif
-            ));
+                ));
 
         public static readonly DependencyProperty HighlightProcessorProperty = DependencyProperty.RegisterAttached(
             "HighlightProcessor",
@@ -56,19 +68,29 @@ namespace HighlightMarker
             return (string)element.GetValue(FullTextProperty);
         }
 
-        public static Brush GetHighlightBrush(TextBlock element)
-        {
-            return (Brush)element.GetValue(HighlightBrushProperty);
-        }
-
         public static void SetFullText(TextBlock element, string value)
         {
             element.SetValue(FullTextProperty, value);
         }
 
-        public static void SetHighlightBrush(TextBlock element, Brush value)
+        public static Brush GetForeground(TextBlock element)
         {
-            element.SetValue(HighlightBrushProperty, value);
+            return (Brush)element.GetValue(ForegroundProperty);
+        }
+
+        public static void SetForeground(TextBlock element, Brush value)
+        {
+            element.SetValue(ForegroundProperty, value);
+        }
+
+        public static Brush GetBackground(TextBlock element)
+        {
+            return (Brush)element.GetValue(BackgroundProperty);
+        }
+
+        public static void SetBackground(TextBlock element, Brush value)
+        {
+            element.SetValue(BackgroundProperty, value);
         }
 
         public static string GetHighlightedText(DependencyObject d)
@@ -110,7 +132,10 @@ namespace HighlightMarker
                 return;
             }
 
-            var foregroundBrush = GetHighlightBrush(textBlock) ?? ColorHelper.GetDefaultHighlightBrush();
+            var foregroundBrush = GetForeground(textBlock) ?? ColorHelper.GetDefaultForegroundBrush();
+#if !(WINDOWS_APP || WINDOWS_PHONE || WINDOWS_PHONE_APP)
+            var backgroundBrush = GetBackground(textBlock) ?? ColorHelper.GetDefaultBackgroundBrush();
+#endif
             var highlightProcessor = GetHighlightProcessor(textBlock);
 
             var highlightMarker = new HighlightMarker(fulltext, highlightedText, highlightProcessor);
@@ -121,14 +146,15 @@ namespace HighlightMarker
                 int length = current.Length;
                 bool isHighlighted = current.IsHighlighted;
 
+                var inlineRun = new Run { Text = fulltext.Substring(fromIndex, length) };
                 if (isHighlighted)
                 {
-                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length), Foreground = foregroundBrush });
+                    inlineRun.Foreground = foregroundBrush;
+#if !(WINDOWS_APP || WINDOWS_PHONE || WINDOWS_PHONE_APP)
+                    inlineRun.Background = backgroundBrush;
+#endif
                 }
-                else
-                {
-                    textBlock.Inlines.Add(new Run { Text = fulltext.Substring(fromIndex, length) });
-                }
+                textBlock.Inlines.Add(inlineRun);
             }
         }
     }

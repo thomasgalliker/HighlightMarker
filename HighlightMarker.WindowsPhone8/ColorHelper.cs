@@ -10,7 +10,7 @@ namespace HighlightMarker
 {
     internal static class ColorHelper
     {
-        internal static Brush GetDefaultHighlightBrush()
+        internal static Brush GetDefaultForegroundBrush()
         {
             var brush = Application.Current.Resources["PhoneAccentBrush"];
             return brush as Brush;

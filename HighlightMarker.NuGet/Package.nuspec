@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker</id>
-    <version>1.0.34-pre1</version>
+    <version>1.1.0-pre1</version>
     <title>HighlightMarker</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -19,6 +19,9 @@
       windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
     </tags>
     <releaseNotes>
+1.1.0
+- Added highlightable Background property to TextBlockHighlighting
+
 1.0.3
 - Extended HighlightMarker to accept IHighlightProcessor instances which enables fulltext highlighting interception
 - Added HighlightProcessor property to TextBlockHighlighting (Windows-based platforms)

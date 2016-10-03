@@ -5,9 +5,14 @@ namespace HighlightMarker
 {
     internal static class ColorHelper
     {
-        internal static Brush GetDefaultHighlightBrush()
+        internal static Brush GetDefaultForegroundBrush()
         {
             return SystemColors.HighlightBrush;
+        }
+
+        public static Brush GetDefaultBackgroundBrush()
+        {
+            return Brushes.Transparent;
         }
     }
 }

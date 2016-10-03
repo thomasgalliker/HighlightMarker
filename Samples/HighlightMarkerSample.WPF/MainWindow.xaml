@@ -34,13 +34,15 @@
             <ListView.View>
                 <GridView >
                     <!--Title-->
-                    <GridViewColumn Header="Title" Width="Auto">
+                    <GridViewColumn Header="Title (Foreground: Red, Background: Yellow" Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock highlightMarker:TextBlockHighlighting.FullText="{Binding Title}"
                                            highlightMarker:TextBlockHighlighting.HighlightProcessor="{StaticResource DiacriticsRemovalProcessor}"
                                            highlightMarker:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}"
-                                           TextAlignment="Right" Width="Auto" />
+                                           highlightMarker:TextBlockHighlighting.Foreground="Red"
+                                           highlightMarker:TextBlockHighlighting.Background="Yellow"
+                                           TextAlignment="Right" Width="Auto" Foreground="Blue" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
