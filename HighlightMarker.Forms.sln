@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightMarker.Forms", "HighlightMarker.Forms\HighlightMarker.Forms.csproj", "{67F9D3A8-F71E-4428-913F-C37AE82CDB24}"
 EndProject
@@ -16,6 +16,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{C7D6E17E-50D4-4C5A-B094-EEC3C54EEAC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightMarker.Forms.NuGet", "HighlightMarker.Forms.NuGet\HighlightMarker.Forms.NuGet.csproj", "{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24} = {67F9D3A8-F71E-4428-913F-C37AE82CDB24}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightMarkerSample.Forms.Android", "Samples\HighlightMarkerSample.Forms\HighlightMarkerSample.Forms.Android\HighlightMarkerSample.Forms.Android.csproj", "{F2E5ED6E-7090-4283-9924-32B184E42E94}"
 EndProject
@@ -279,6 +282,7 @@ Global
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Debug|x86.Build.0 = Debug|Any CPU
 		{2CF5E868-1098-4C6D-9001-27D8DC0D87BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
