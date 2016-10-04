@@ -1,8 +1,5 @@
 ﻿using HighlightMarkerSample.Forms.Model;
-using System.Collections.ObjectModel;
 using ObservableView;
-using ObservableView.Extensions;
-
 using Xamarin.Forms;
 
 namespace HighlightMarkerSample.Forms.Views

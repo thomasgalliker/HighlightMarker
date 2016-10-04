@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:HighlightMarker.Forms;assembly=HighlightMarker.Forms"
+             xmlns:forms1="clr-namespace:HighlightMarkerSample.Forms;assembly=HighlightMarkerSample.Forms"
              x:Class="HighlightMarkerSample.Forms.Views.MainPage">
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -37,7 +38,8 @@
            forms:TextHighlightBehavior.HighlightedText="Highlight"
            forms:TextHighlightBehavior.FullText="HighlightMarker"
            forms:TextHighlightBehavior.Foreground="{x:Static Color.Fuchsia}"
-           forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"/>
+           forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
+           />
     
     <SearchBar x:Name="SearchBar" Placeholder = "Search" TextChanged="SearchBarOnTextChanged"/>
     <ListView ItemsSource="{Binding Malls.View}"
