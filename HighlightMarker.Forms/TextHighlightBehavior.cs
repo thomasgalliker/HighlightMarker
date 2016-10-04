@@ -41,6 +41,15 @@ namespace HighlightMarker.Forms
              propertyChanging: null,
              coerceValue: null);
 
+        public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached<TextHighlightBehavior, FontAttributes>(
+           staticgetter: bindable => TextHighlightBehavior.GetFontAttributes(bindable),
+           defaultValue: FontAttributes.None,
+           defaultBindingMode: BindingMode.OneWay,
+           validateValue: null,
+           propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
+           propertyChanging: null,
+           coerceValue: null);
+
         public static string GetFullText(BindableObject bo)
         {
             return (string)bo.GetValue(TextHighlightBehavior.FullTextProperty);
@@ -81,6 +90,16 @@ namespace HighlightMarker.Forms
             bo.SetValue(TextHighlightBehavior.BackgroundProperty, value);
         }
 
+        public static FontAttributes GetFontAttributes(BindableObject bo)
+        {
+            return (FontAttributes)bo.GetValue(TextHighlightBehavior.FontAttributesProperty);
+        }
+
+        public static void SetFontAttributes(BindableObject bo, FontAttributes value)
+        {
+            bo.SetValue(TextHighlightBehavior.FontAttributesProperty, value);
+        }
+
         private static void OnTextPropertyChanged(BindableObject bindableObject/*, string oldValue, string newValue*/)
         {
             var label = bindableObject as Label;
@@ -101,6 +120,7 @@ namespace HighlightMarker.Forms
 
             Color foregroundColor = GetForeground(label);
             Color backgroundColor = GetBackground(label);
+            FontAttributes fontAttributes = GetFontAttributes(label);
 
             label.FormattedText = string.Empty;
 
@@ -121,6 +141,7 @@ namespace HighlightMarker.Forms
                     {
                         span.ForegroundColor = foregroundColor;
                         span.BackgroundColor = backgroundColor;
+                        span.FontAttributes = fontAttributes;
                     }
 
                     formattedText.Spans.Add(span);

@@ -11,13 +11,16 @@
             <StackLayout Orientation="Vertical">
               
               <!--Title-->
+              <!--Specifies custom styles for the highlighted text-->
               <Label TextColor="Gray"
                      forms:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
                      forms:TextHighlightBehavior.FullText="{Binding Title}"
                      forms:TextHighlightBehavior.Foreground="{x:Static Color.Red}"
-                     forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"/>
+                     forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
+                     forms:TextHighlightBehavior.FontAttributes="{x:Static FontAttributes.Bold}"/>
 
               <!--Subtitle-->
+              <!--Uses default styles for the highlighted text-->
               <Label forms:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
                      forms:TextHighlightBehavior.FullText="{Binding Title}" />
             </StackLayout>
@@ -29,6 +32,8 @@
 
   <StackLayout Orientation="Vertical">
     <Label TextColor="Gray"
+           FontSize="32"
+           FontAttributes="Bold"
            forms:TextHighlightBehavior.HighlightedText="Highlight"
            forms:TextHighlightBehavior.FullText="HighlightMarker"
            forms:TextHighlightBehavior.Foreground="{x:Static Color.Fuchsia}"
