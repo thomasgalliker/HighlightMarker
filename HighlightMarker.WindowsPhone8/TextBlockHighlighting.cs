@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-#elif WINDOWS_PHONE_APP || WINDOWS_APP
+#elif WINDOWS_PHONE_APP || WINDOWS_APP || WINDOWS_UWP
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
@@ -133,7 +133,7 @@ namespace HighlightMarker
             }
 
             var foregroundBrush = GetForeground(textBlock) ?? ColorHelper.GetDefaultForegroundBrush();
-#if !(WINDOWS_APP || WINDOWS_PHONE || WINDOWS_PHONE_APP)
+#if !(WINDOWS_APP || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP)
             var backgroundBrush = GetBackground(textBlock) ?? ColorHelper.GetDefaultBackgroundBrush();
 #endif
             var highlightProcessor = GetHighlightProcessor(textBlock);
@@ -150,7 +150,7 @@ namespace HighlightMarker
                 if (isHighlighted)
                 {
                     inlineRun.Foreground = foregroundBrush;
-#if !(WINDOWS_APP || WINDOWS_PHONE || WINDOWS_PHONE_APP)
+#if !(WINDOWS_APP || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP)
                     inlineRun.Background = backgroundBrush;
 #endif
                 }

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fb4f92e2-06f7-47a7-bb63-d88ae41575ee</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>HighlightMarker</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)EnumerableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EnumeratorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightIndex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighlightMarker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IHighlightProcessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Range.cs" />
+  </ItemGroup>
+</Project>

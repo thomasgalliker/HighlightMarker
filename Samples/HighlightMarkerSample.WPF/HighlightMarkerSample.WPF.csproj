@@ -109,10 +109,6 @@
       <Project>{9252b66c-927f-405e-93d1-19a90fd6b165}</Project>
       <Name>HighlightMarker.Netfx</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\HighlightMarker\HighlightMarker.csproj">
-      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
-      <Name>HighlightMarker</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HighlightMarkerSample.Data\HighlightMarkerSample.Data.csproj">
       <Project>{326e710f-e11f-43b1-9995-5e524ecfe6c6}</Project>
       <Name>HighlightMarkerSample.Data</Name>

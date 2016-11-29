@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HighlightMarker.Forms</id>
-    <version>1.1.0</version>
+    <version>1.1.0-pre4</version>
     <title>HighlightMarker.Forms</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -14,8 +14,8 @@
       HighlightMarker.Forms enables HighlightMarker to be used with Xamarin.Forms.
     </description>
     <tags>
-      xamarin pcl HighlightMarker.Forms plugin for settings HighlightMarker.Forms
-      windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch mvvmcross mvvmlight
+      xamarin pcl HighlightMarker.Forms plugin for HighlightMarker.Forms
+      windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch
     </tags>
     <releaseNotes>
       1.1.0
