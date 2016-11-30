@@ -81,7 +81,7 @@ function Update-AssemblyInfoFiles ([string] $nuspecFilePath, [string] $assemblyI
 try {
   "Updating assembly info to version: $setVersion"
   ""
-  Update-AssemblyInfoFiles "Package.nuspec" "..\*\Properties\AssemblyInfo.cs"
+  Update-AssemblyInfoFiles "Package.nuspec" "..\HighlightMarker.Forms\Properties\AssemblyInfo.cs"
 }
 catch {
   $myError = $_.Exception.ToString()
