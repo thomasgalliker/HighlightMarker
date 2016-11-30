@@ -1,106 +1,117 @@
-﻿
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace HighlightMarker.Forms
 {
     public class TextHighlightBehavior
     {
-        public static readonly BindableProperty FullTextProperty = BindableProperty.CreateAttached<TextHighlightBehavior, string>(
-               staticgetter: bindable => TextHighlightBehavior.GetFullText(bindable),
-               defaultValue: null,
-               defaultBindingMode: BindingMode.OneWay,
-               validateValue: null,
-               propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
-               propertyChanging: null,
-               coerceValue: null);
-
-        public static readonly BindableProperty HighlightedTextProperty = BindableProperty.CreateAttached<TextHighlightBehavior, string>(
-              staticgetter: bindable => TextHighlightBehavior.GetHighlightedText(bindable),
-              defaultValue: null,
-              defaultBindingMode: BindingMode.OneWay,
-              validateValue: null,
-              propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
-              propertyChanging: null,
-              coerceValue: null);
-
-        public static readonly BindableProperty ForegroundProperty = BindableProperty.CreateAttached<TextHighlightBehavior, Color>(
-            staticgetter: bindable => TextHighlightBehavior.GetForeground(bindable),
-            defaultValue: Color.Accent,
+        public static readonly BindableProperty FullTextProperty = BindableProperty.CreateAttached(
+            propertyName: "FullText",
+            returnType: typeof(string),
+            declaringType: typeof(TextHighlightBehavior),
+            defaultValue: null,
             defaultBindingMode: BindingMode.OneWay,
             validateValue: null,
-            propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
+            propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
             propertyChanging: null,
             coerceValue: null);
 
-        public static readonly BindableProperty BackgroundProperty = BindableProperty.CreateAttached<TextHighlightBehavior, Color>(
-             staticgetter: bindable => TextHighlightBehavior.GetBackground(bindable),
-             defaultValue: Color.Transparent,
-             defaultBindingMode: BindingMode.OneWay,
-             validateValue: null,
-             propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
-             propertyChanging: null,
-             coerceValue: null);
+        public static readonly BindableProperty HighlightedTextProperty = BindableProperty.CreateAttached(
+            propertyName: "HighlightedText",
+            returnType: typeof(string),
+            declaringType: typeof(TextHighlightBehavior),
+            defaultValue: null,
+            defaultBindingMode: BindingMode.OneWay,
+            validateValue: null,
+            propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
+            propertyChanging: null,
+            coerceValue: null);
 
-        public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached<TextHighlightBehavior, FontAttributes>(
-           staticgetter: bindable => TextHighlightBehavior.GetFontAttributes(bindable),
-           defaultValue: FontAttributes.None,
-           defaultBindingMode: BindingMode.OneWay,
-           validateValue: null,
-           propertyChanged: (b, o, n) => TextHighlightBehavior.OnTextPropertyChanged(b/*, o, n*/),
-           propertyChanging: null,
-           coerceValue: null);
+        public static readonly BindableProperty ForegroundProperty = BindableProperty.CreateAttached(
+            propertyName: "Foreground",
+            returnType: typeof(Color),
+            declaringType: typeof(TextHighlightBehavior),
+            defaultValue: Color.Accent,
+            defaultBindingMode: BindingMode.OneWay,
+            validateValue: null,
+            propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
+            propertyChanging: null,
+            coerceValue: null);
+
+        public static readonly BindableProperty BackgroundProperty = BindableProperty.CreateAttached(
+            propertyName: "Background",
+            returnType: typeof(Color),
+            declaringType: typeof(TextHighlightBehavior),
+            defaultValue: Color.Transparent,
+            defaultBindingMode: BindingMode.OneWay,
+            validateValue: null,
+            propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
+            propertyChanging: null,
+            coerceValue: null);
+
+        public static readonly BindableProperty FontAttributesProperty = BindableProperty.CreateAttached(
+            propertyName: "FontAttributes",
+            returnType: typeof(FontAttributes),
+            declaringType: typeof(TextHighlightBehavior),
+            defaultValue: FontAttributes.None,
+            defaultBindingMode: BindingMode.OneWay,
+            validateValue: null,
+            propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
+            propertyChanging: null,
+            coerceValue: null);
 
         public static string GetFullText(BindableObject bo)
         {
-            return (string)bo.GetValue(TextHighlightBehavior.FullTextProperty);
+            return (string)bo.GetValue(FullTextProperty);
         }
 
         public static void SetFullText(BindableObject bo, string value)
         {
-            bo.SetValue(TextHighlightBehavior.FullTextProperty, value);
+            bo.SetValue(FullTextProperty, value);
         }
 
         public static string GetHighlightedText(BindableObject bo)
         {
-            return (string)bo.GetValue(TextHighlightBehavior.HighlightedTextProperty);
+            return (string)bo.GetValue(HighlightedTextProperty);
         }
 
         public static void SetHighlightedText(BindableObject bo, string value)
         {
-            bo.SetValue(TextHighlightBehavior.HighlightedTextProperty, value);
+            bo.SetValue(HighlightedTextProperty, value);
         }
 
         public static Color GetForeground(BindableObject bo)
         {
-            return (Color)bo.GetValue(TextHighlightBehavior.ForegroundProperty);
+            return (Color)bo.GetValue(ForegroundProperty);
         }
 
         public static void SetForeground(BindableObject bo, Color value)
         {
-            bo.SetValue(TextHighlightBehavior.ForegroundProperty, value);
+            bo.SetValue(ForegroundProperty, value);
         }
 
         public static Color GetBackground(BindableObject bo)
         {
-            return (Color)bo.GetValue(TextHighlightBehavior.BackgroundProperty);
+            return (Color)bo.GetValue(BackgroundProperty);
         }
+
+        public static string Test { get; set; }
 
         public static void SetBackground(BindableObject bo, Color value)
         {
-            bo.SetValue(TextHighlightBehavior.BackgroundProperty, value);
+            bo.SetValue(BackgroundProperty, value);
         }
 
         public static FontAttributes GetFontAttributes(BindableObject bo)
         {
-            return (FontAttributes)bo.GetValue(TextHighlightBehavior.FontAttributesProperty);
+            return (FontAttributes)bo.GetValue(FontAttributesProperty);
         }
 
         public static void SetFontAttributes(BindableObject bo, FontAttributes value)
         {
-            bo.SetValue(TextHighlightBehavior.FontAttributesProperty, value);
+            bo.SetValue(FontAttributesProperty, value);
         }
 
-        private static void OnTextPropertyChanged(BindableObject bindableObject/*, string oldValue, string newValue*/)
+        private static void OnTextPropertyChanged(BindableObject bindableObject /*, string oldValue, string newValue*/)
         {
             var label = bindableObject as Label;
             if (label == null)
@@ -118,9 +129,9 @@ namespace HighlightMarker.Forms
                 return;
             }
 
-            Color foregroundColor = GetForeground(label);
-            Color backgroundColor = GetBackground(label);
-            FontAttributes fontAttributes = GetFontAttributes(label);
+            var foregroundColor = GetForeground(label);
+            var backgroundColor = GetBackground(label);
+            var fontAttributes = GetFontAttributes(label);
 
             label.FormattedText = string.Empty;
 
