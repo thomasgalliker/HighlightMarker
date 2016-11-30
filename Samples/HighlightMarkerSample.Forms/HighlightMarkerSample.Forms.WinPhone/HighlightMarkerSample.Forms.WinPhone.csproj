@@ -159,7 +159,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker.Forms, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.Forms.1.1.0-pre3\lib\wp8\HighlightMarker.Forms.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.Forms.1.1.0\lib\wp8\HighlightMarker.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
