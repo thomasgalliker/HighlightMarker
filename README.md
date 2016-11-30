@@ -1,4 +1,4 @@
-# HighlightMarker
+<img src="https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/master/logo_cropped.png" ><br>
 HighlightMarker is a library which supports you in highlighting text of a UI label. This can be particularly helpful if you want to highlight the user's search input e.g. in a list of text items. 
 
 | Xamarin Android | Xamarin iOS | Windows Presentation Foundation | Windows Phone App 8.1 |Windows Store App 8.1 |
