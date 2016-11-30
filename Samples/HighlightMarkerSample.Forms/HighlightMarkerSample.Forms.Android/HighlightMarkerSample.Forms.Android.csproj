@@ -51,7 +51,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\HighlightMarker.1.1.0-pre6\lib\monoandroid10\HighlightMarker.dll</HintPath>
+      <HintPath>..\..\..\packages\HighlightMarker.1.1.0\lib\monoandroid10\HighlightMarker.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HighlightMarker.Forms, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
