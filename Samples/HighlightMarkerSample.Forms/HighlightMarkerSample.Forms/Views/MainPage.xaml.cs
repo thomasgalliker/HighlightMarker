@@ -13,8 +13,8 @@ namespace HighlightMarkerSample.Forms.Views
             this.InitializeComponent();
 
             this.Malls = new ObservableView<Mall>(MallManager.GetMalls());
-            this.Malls.AddSearchSpecification(mall => mall.Title);
-            this.Malls.AddSearchSpecification(mall => mall.Subtitle);
+            this.Malls.SearchSpecification.Add(mall => mall.Title);
+            this.Malls.SearchSpecification.Add(mall => mall.Subtitle);
 
             this.BindingContext = this;
         }
