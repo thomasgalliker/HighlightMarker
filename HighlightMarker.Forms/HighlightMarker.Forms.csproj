@@ -46,15 +46,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" version="[2.4.0.280,)"/>
+    <PackageReference Include="Xamarin.Forms" version="[2.4.0.280,)" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HighlightMarker.Annotations\HighlightMarker.Annotations.csproj" />
   </ItemGroup>
 
   <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />

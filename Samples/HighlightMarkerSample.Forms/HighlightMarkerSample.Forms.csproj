@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\HighlightMarker.Annotations\HighlightMarker.Annotations.csproj" />
     <ProjectReference Include="..\..\HighlightMarker.Forms\HighlightMarker.Forms.csproj" />
   </ItemGroup>
 
@@ -40,6 +39,10 @@
       <LastGenOutput>RadioFrequencyResources.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>
