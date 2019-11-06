@@ -22,7 +22,7 @@
                             <!--Subtitle-->
                             <!--Uses default styles for the highlighted text-->
                             <Label forms:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
-                     forms:TextHighlightBehavior.FullText="{Binding Title}" />
+                                   forms:TextHighlightBehavior.FullText="{Binding Title}" />
                         </StackLayout>
                     </ViewCell.View>
                 </ViewCell>
@@ -30,7 +30,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Orientation="Vertical">
+    <StackLayout Orientation="Vertical" Padding="10">
         <Label TextColor="Gray"
            FontSize="32"
            FontAttributes="Bold"
@@ -39,7 +39,15 @@
            forms:TextHighlightBehavior.Foreground="{x:Static Color.Fuchsia}"
            forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"/>
 
+        <Label TextColor="Gray"
+               FontSize="16"
+               FontAttributes="Bold"
+               Text="Xamarin.Forms Sample App"/>
+
         <SearchBar x:Name="SearchBar" Placeholder="Search" TextChanged="SearchBarOnTextChanged"/>
-        <ListView ItemsSource="{Binding Malls.View}" ItemTemplate="{StaticResource TextCellTemplate}"/>
+        <ListView ItemsSource="{Binding Malls.View}"
+                  ItemTemplate="{StaticResource TextCellTemplate}"
+                  HasUnevenRows="True"
+                  CachingStrategy="RetainElement"/>
     </StackLayout>
 </ContentPage>

@@ -5,32 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <!--<processors:DiacriticsRemovalProcessor x:Key="DiacriticsRemovalProcessor"/>-->
         <!--hm:TextBlockHighlighting.HighlightProcessor="{StaticResource DiacriticsRemovalProcessor}"-->
     </Window.Resources>
     <Grid>
-        <TextBox x:Name="searchBox"
-                 Text="{Binding ListItemsView.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 HorizontalAlignment="Left" 
-                 Height="23" 
-                 Margin="60,10,0,0" 
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top" 
-                 Width="447"/>
-        
-        <Label Content="Search" 
-               HorizontalAlignment="Left" 
-               Margin="10,6,0,0" 
-               VerticalAlignment="Top"/>
-        <ListView ItemsSource="{Binding ListItemsView.View}" 
-                  HorizontalAlignment="Left" 
-                  Height="271" 
-                  Margin="10,38,0,0" 
-                  VerticalAlignment="Top" 
-                  Width="497">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Title-->
+        <StackPanel Grid.Row="0" Margin="0, 0, 0, 20">
+            <TextBlock Foreground="Gray"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       hm:TextBlockHighlighting.HighlightedText="Highlight"
+                       hm:TextBlockHighlighting.FullText="HighlightMarker"
+                       hm:TextBlockHighlighting.Foreground="Fuchsia"
+                       hm:TextBlockHighlighting.Background="Yellow"/>
+
+            <Label Foreground="Gray"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="0,-4, 0, 0"
+                   Content="WPF Sample App"/>
+        </StackPanel>
+ 
+        <!--Search box-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Content="Search"/>
+            <TextBox x:Name="searchBox"
+                     Grid.Column="1"
+                     Text="{Binding ListItemsView.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+        <!--ListView with search results-->
+        <ListView Grid.Row="2" ItemsSource="{Binding ListItemsView.View}">
             <ListView.View>
                 <GridView >
                     <!--Title-->
