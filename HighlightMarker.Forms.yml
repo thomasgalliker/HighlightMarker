@@ -26,17 +26,16 @@ variables:
   nuspecFile: 'HighlightMarker.Forms.nuspec'
 
 steps:
-- task: bleddynrichards.Assembly-Info-Task.Assembly-Info-Task.Assembly-Info-Task@1
+- task: bleddynrichards.Assembly-Info-Task.Assembly-Info-NetCore.Assembly-Info-NetCore@2
   displayName: 'Set Assembly Manifest Data'
   inputs:
     FileNames: |
-     AssemblyInfo.cs
      HighlightMarker.Forms.csproj
     InsertAttributes: true
-    Title: 'HighlightMarker for Xamarin.Forms'
+    Product: 'HighlightMarker.Forms'
     Description: 'A simple-to-use highlight marker for search text highlighting'
     Company: 'superdev GmbH'
-    Copyright: '(c) $(date:yyyy) superdev GmbH'
+    Copyright: '(c) $(date:YYYY) superdev GmbH'
     VersionNumber: '$(Build.BuildNumber)'
     FileVersionNumber: '$(Build.BuildNumber)'
 

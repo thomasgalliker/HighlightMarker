@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("HighlightMarker.Tests")]
+[assembly: InternalsVisibleTo("HighlightMarker.Tests")]
