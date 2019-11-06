@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Media;
 #endif
 
-namespace HighlightMarker.WPF
+namespace HighlightMarker
 {
     public class TextBlockHighlighting : DependencyObject
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{EFC0655A-C5B8-4B71-B130-3BA06F43287D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HighlightMarker.WPF</RootNamespace>
-    <AssemblyName>HighlightMarker.WPF</AssemblyName>
+    <RootNamespace>HighlightMarker</RootNamespace>
+    <AssemblyName>HighlightMarker</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,7 +31,7 @@
     <DefineConstants>TRACE;NETFX;WPF</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\HighlightMarker.WPF.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\HighlightMarker.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -48,12 +48,7 @@
     <Compile Include="ColorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HighlightMarker\HighlightMarker.csproj">
-      <Project>{3a3dd70f-6fdf-4e6d-9992-0bbabf665a44}</Project>
-      <Name>HighlightMarker</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

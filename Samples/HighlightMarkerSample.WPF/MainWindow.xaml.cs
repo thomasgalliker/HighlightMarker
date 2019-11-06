@@ -10,7 +10,6 @@ namespace HighlightMarkerSample.WPF
 
         public MainWindow()
         {
-            var backgroundProperty = HighlightMarker.WPF.TextBlockHighlighting.BackgroundProperty;
             this.InitializeComponent();
 
             var listItems = MallManager.GetMalls();

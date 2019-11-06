@@ -97,9 +97,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HighlightMarker.NetFx\HighlightMarker.WPF.csproj">
+    <ProjectReference Include="..\..\HighlightMarker.NetFx\HighlightMarker.Netfx.csproj">
       <Project>{efc0655a-c5b8-4b71-b130-3ba06f43287d}</Project>
-      <Name>HighlightMarker.WPF</Name>
+      <Name>HighlightMarker.Netfx</Name>
     </ProjectReference>
     <ProjectReference Include="..\HighlightMarkerSample\HighlightMarkerSample.csproj">
       <Project>{11f8c63c-c82b-4d73-ac99-328ea3991a1f}</Project>

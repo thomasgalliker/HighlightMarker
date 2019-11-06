@@ -45,12 +45,9 @@
   </metadata>
   <files>
     <!--net45-->
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.WPF.dll" target="lib\net45\HighlightMarker.WPF.dll" />
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.WPF.pdb" target="lib\net45\HighlightMarker.WPF.pdb" />
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.WPF.xml" target="lib\net45\HighlightMarker.WPF.xml" />
-    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.dll" target="lib\net45\HighlightMarker.dll" />
-    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.pdb" target="lib\net45\HighlightMarker.pdb" />
-    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.deps.json" target="lib\net45\HighlightMarker.deps.json" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.dll" target="lib\net45\HighlightMarker.dll" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.pdb" target="lib\net45\HighlightMarker.pdb" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.xml" target="lib\net45\HighlightMarker.xml" />
 
     <!--netstandard1.0-->
     <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.dll" target="lib\netstandard1.0\HighlightMarker.dll" />

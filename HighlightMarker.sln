@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighlightMarker.Tests", "Tests\HighlightMarker.Tests\HighlightMarker.Tests.csproj", "{04323B62-FC00-4AA7-BBDC-F3F1A31C67B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightMarker.WPF", "HighlightMarker.NetFx\HighlightMarker.WPF.csproj", "{EFC0655A-C5B8-4B71-B130-3BA06F43287D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightMarker.Netfx", "HighlightMarker.NetFx\HighlightMarker.Netfx.csproj", "{EFC0655A-C5B8-4B71-B130-3BA06F43287D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightMarkerSample.WPF", "Samples\HighlightMarkerSample.WPF\HighlightMarkerSample.WPF.csproj", "{2785E86E-0174-4EB3-8160-219A75E17155}"
 EndProject
@@ -32,6 +32,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		HighlightMarker.Shared\HighlightMarker.Shared.projitems*{4d17e49b-5e42-487e-b057-da0d8d364662}*SharedItemsImports = 13
+		HighlightMarker.Shared\HighlightMarker.Shared.projitems*{efc0655a-c5b8-4b71-b130-3ba06f43287d}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
