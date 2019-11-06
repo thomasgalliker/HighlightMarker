@@ -44,20 +44,23 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <!--netstandard1.2-->
-    <file src="HighlightMarker\bin\Release\netstandard1.2\HighlightMarker.dll" target="lib\netstandard1.2\HighlightMarker.dll" />
-    <file src="HighlightMarker\bin\Release\netstandard1.2\HighlightMarker.pdb" target="lib\netstandard1.2\HighlightMarker.pdb" />
-    <file src="HighlightMarker\bin\Release\netstandard1.2\HighlightMarker.deps.json" target="lib\netstandard1.2\HighlightMarker.deps.json" />
+    <!--net45-->
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.WPF.dll" target="lib\net45\HighlightMarker.WPF.dll" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.WPF.pdb" target="lib\net45\HighlightMarker.WPF.pdb" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.WPF.xml" target="lib\net45\HighlightMarker.WPF.xml" />
+    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.dll" target="lib\net45\HighlightMarker.dll" />
+    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.pdb" target="lib\net45\HighlightMarker.pdb" />
+    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.deps.json" target="lib\net45\HighlightMarker.deps.json" />
+
+    <!--netstandard1.0-->
+    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.dll" target="lib\netstandard1.0\HighlightMarker.dll" />
+    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.pdb" target="lib\netstandard1.0\HighlightMarker.pdb" />
+    <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.deps.json" target="lib\netstandard1.0\HighlightMarker.deps.json" />
 
     <!--netstandard2.0-->
     <file src="HighlightMarker\bin\Release\netstandard2.0\HighlightMarker.dll" target="lib\netstandard2.0\HighlightMarker.dll" />
     <file src="HighlightMarker\bin\Release\netstandard2.0\HighlightMarker.pdb" target="lib\netstandard2.0\HighlightMarker.pdb" />
     <file src="HighlightMarker\bin\Release\netstandard2.0\HighlightMarker.deps.json" target="lib\netstandard2.0\HighlightMarker.deps.json" />
-
-    <!--net45-->
-    <file src="HighlightMarker.WPF\bin\Release\HighlightMarker.WPF.dll" target="lib\net45\HighlightMarker.WPF.dll" />
-    <file src="HighlightMarker.WPF\bin\Release\HighlightMarker.WPF.pdb" target="lib\net45\HighlightMarker.WPF.pdb" />
-    <file src="HighlightMarker.WPF\bin\Release\HighlightMarker.WPF.xml" target="lib\net45\HighlightMarker.WPF.xml" />
 
     <!--Universal Windows Platform-->
     <!--<file src="HighlightMarker.UWP\bin\Release\HighlightMarker.dll" target="lib\uap10.0\HighlightMarker.dll" />
