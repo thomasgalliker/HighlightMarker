@@ -1,8 +1,8 @@
-﻿#if WPF
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+#if WPF
+using System.Windows;
 
 #elif WINDOWS_UWP
 using Windows.UI.Xaml;
@@ -22,7 +22,9 @@ namespace HighlightMarker.WPF
             "FullText",
             typeof(string),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(string.Empty, OnTextChangedCallback));
+            new PropertyMetadata(
+                defaultValue: null,
+                propertyChangedCallback: OnTextChangedCallback));
 
         /// <summary>
         ///     The foreground color used for text highlighting.
@@ -31,7 +33,9 @@ namespace HighlightMarker.WPF
             "Foreground",
             typeof(Brush),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(null, OnTextChangedCallback));
+            new PropertyMetadata(
+                defaultValue: null,
+                propertyChangedCallback: OnTextChangedCallback));
 
         /// <summary>
         ///     The background color used for text highlighting.
@@ -40,7 +44,9 @@ namespace HighlightMarker.WPF
             "Background",
             typeof(Brush),
             typeof(TextBlockHighlighting),
-            new PropertyMetadata(null, OnTextChangedCallback));
+            new PropertyMetadata(
+                defaultValue: null,
+                propertyChangedCallback: OnTextChangedCallback));
 
         /// <summary>
         ///     HighlightedText is usually bound to the highlighter source, which may be the Text property of a search box.
@@ -50,8 +56,8 @@ namespace HighlightMarker.WPF
             typeof(string),
             typeof(TextBlockHighlighting),
             new PropertyMetadata(
-                string.Empty
-            ));
+                defaultValue: null,
+                propertyChangedCallback: OnTextChangedCallback));
 
         public static readonly DependencyProperty HighlightProcessorProperty = DependencyProperty.RegisterAttached(
             "HighlightProcessor",
@@ -150,6 +156,7 @@ namespace HighlightMarker.WPF
                     inlineRun.Background = backgroundBrush;
 #endif
                 }
+
                 textBlock.Inlines.Add(inlineRun);
             }
         }
