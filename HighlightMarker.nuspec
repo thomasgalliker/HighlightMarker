@@ -13,7 +13,7 @@
     <description>HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
     </description>
     <tags>highlight;highlighting;highlighter;texthighlighter;highlightmarker;text;marker;textmarker;marking;searchtext</tags>
-    <releaseNotes>2.0.0-pre
+    <releaseNotes>2.0.0
 - Add support for .Net Standard
 
 1.1.0

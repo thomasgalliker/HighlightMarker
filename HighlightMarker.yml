@@ -1,5 +1,5 @@
 ####################################################################
-# VSTS Build Configuration, Version 1.1
+# VSTS Build Configuration, Version 1.2
 #
 # (c)2018 superdev GmbH
 ####################################################################
@@ -52,7 +52,6 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-
 - powershell: |
    Write-Host "##vso[task.setvariable variable=PackageVersion]$(Build.BuildNumber)"
    Write-Host "##vso[task.setvariable variable=PackageVersionPre]$(Build.BuildNumber)$(BuildVersionPostfix)"
@@ -86,7 +85,6 @@ steps:
     command: custom
     arguments: pack $(nuspecFile) -Version $(PackageVersion) -NoPackageAnalysis -outputdirectory $(Build.ArtifactStagingDirectory)\artifacts
 
-
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
@@ -97,7 +95,6 @@ steps:
      **\bin\*.nupkg
 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
