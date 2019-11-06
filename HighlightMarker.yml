@@ -33,7 +33,7 @@ steps:
      AssemblyInfo.cs
      HighlightMarker.csproj
     InsertAttributes: true
-    Title: 'HighlightMarker.NET'
+    Title: 'HighlightMarker'
     Description: 'A simple-to-use highlight marker for search text highlighting'
     Company: 'superdev GmbH'
     Copyright: '(c) $(date:yyyy) superdev GmbH'
