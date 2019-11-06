@@ -1,4 +1,4 @@
-namespace HighlightMarkerSample.Data.Model
+namespace HighlightMarkerSample.Model
 {
 
 	public class Mall

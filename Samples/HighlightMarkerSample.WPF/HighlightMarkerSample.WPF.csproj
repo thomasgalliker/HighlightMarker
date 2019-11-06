@@ -56,20 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,10 +104,20 @@
       <Project>{efc0655a-c5b8-4b71-b130-3ba06f43287d}</Project>
       <Name>HighlightMarker.WPF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\HighlightMarker\HighlightMarker.csproj">
+      <Project>{3a3dd70f-6fdf-4e6d-9992-0bbabf665a44}</Project>
+      <Name>HighlightMarker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HighlightMarkerSample\HighlightMarkerSample.csproj">
       <Project>{11f8c63c-c82b-4d73-ac99-328ea3991a1f}</Project>
       <Name>HighlightMarkerSample</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

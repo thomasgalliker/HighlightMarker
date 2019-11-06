@@ -1,7 +1,5 @@
 ﻿using System.Windows;
-
-using HighlightMarkerSample.Data.Model;
-
+using HighlightMarkerSample.Model;
 using ObservableView;
 
 namespace HighlightMarkerSample.WPF

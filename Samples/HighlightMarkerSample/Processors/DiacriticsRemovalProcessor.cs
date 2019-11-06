@@ -1,8 +1,7 @@
 ﻿using Diacritics.Extensions;
-
 using HighlightMarker;
 
-namespace HighlightMarkerSample.Data.Processors
+namespace HighlightMarkerSample.Processors
 {
     public class DiacriticsRemovalProcessor : IHighlightProcessor
     {

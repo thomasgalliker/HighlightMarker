@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace HighlightMarkerSample.Data.Model
+namespace HighlightMarkerSample.Model
 {
     public static class MallManager
     {
