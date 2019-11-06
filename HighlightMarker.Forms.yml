@@ -6,39 +6,37 @@
 
 name: 2.0.$(date:yy)$(DayOfYear).$(rev:rr)
   
-pool:
-  vmImage: 'windows-2019'
+queue:
+  name: Hosted VS2017
+  demands: 
+  - msbuild
+  - visualstudio
+  - vstest
 
 trigger:
-  branches:
-    include:
-    - master
-    - develop
-    - release/*
-    - feature/*
-
-  paths:
-    exclude:
-    - README.md
+- master
+- develop
+- release/*
 
 variables:
   solution: 'HighlightMarker.Forms.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   buildVersionPostfix: '-pre'
-  nuspecFile: 'HighlightMarker.nuspec'
+  nuspecFile: 'HighlightMarker.Forms.nuspec'
 
 steps:
-- task: bleddynrichards.Assembly-Info-Task.Assembly-Info-NetCore.Assembly-Info-NetCore@2
+- task: bleddynrichards.Assembly-Info-Task.Assembly-Info-Task.Assembly-Info-Task@1
   displayName: 'Set Assembly Manifest Data'
   inputs:
     FileNames: |
-     HighlightMarker.csproj
+     AssemblyInfo.cs
+     HighlightMarker.Forms.csproj
     InsertAttributes: true
-    Product: 'HighlightMarker for Xamarin.Forms'
+    Title: 'HighlightMarker for Xamarin.Forms'
     Description: 'A simple-to-use highlight marker for search text highlighting'
     Company: 'superdev GmbH'
-    Copyright: '(c) $(date:YYYY) superdev GmbH'
+    Copyright: '(c) $(date:yyyy) superdev GmbH'
     VersionNumber: '$(Build.BuildNumber)'
     FileVersionNumber: '$(Build.BuildNumber)'
 
@@ -65,13 +63,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Run UnitTests'
-  continueOnError: false
-  inputs:
-    command: test
-    projects: '**/HighlightMarker.Tests.csproj'
-    arguments: ''
+#- task: DotNetCoreCLI@2
+#  displayName: 'Run UnitTests'
+#  continueOnError: false
+#  inputs:
+#    command: test
+#    projects: '**/*.Tests.csproj'
+#    arguments: ''
 
 - task: NuGetCommand@2
   displayName: 'Pack NuGet PreRelease'
