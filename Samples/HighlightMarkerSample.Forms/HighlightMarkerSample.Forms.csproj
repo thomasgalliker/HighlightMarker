@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="ObservableView" Version="2.2.19284.6" />
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
   </ItemGroup>
 
   <ItemGroup>
