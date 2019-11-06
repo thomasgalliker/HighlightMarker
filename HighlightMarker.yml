@@ -7,16 +7,23 @@
 name: 2.0.$(date:yy)$(DayOfYear).$(rev:rr)
   
 queue:
-  name: Hosted VS2017
+  name: windows-2019
   demands: 
   - msbuild
   - visualstudio
   - vstest
 
 trigger:
-- master
-- develop
-- release/*
+  branches:
+    include:
+    - master
+    - develop
+    - release/*
+    - feature/*
+
+  paths:
+    exclude:
+    - README.md
 
 variables:
   solution: 'HighlightMarker.sln'
