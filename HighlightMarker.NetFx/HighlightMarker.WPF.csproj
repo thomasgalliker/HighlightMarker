@@ -48,7 +48,12 @@
     <Compile Include="ColorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\HighlightMarker\HighlightMarker.csproj">
+      <Project>{3a3dd70f-6fdf-4e6d-9992-0bbabf665a44}</Project>
+      <Name>HighlightMarker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

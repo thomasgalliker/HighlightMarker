@@ -13,7 +13,7 @@
     </Window.Resources>
     <Grid>
         <TextBox x:Name="searchBox"
-                 Text="{Binding ListItemsView.SearchText, Mode=TwoWay}"
+                 Text="{Binding ListItemsView.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  HorizontalAlignment="Left" 
                  Height="23" 
                  Margin="60,10,0,0" 
@@ -38,11 +38,10 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock hm:TextBlockHighlighting.FullText="{Binding Title}"
-                                           
                                            hm:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}"
                                            hm:TextBlockHighlighting.Foreground="Red"
                                            hm:TextBlockHighlighting.Background="Yellow"
-                                           TextAlignment="Right" Width="Auto" Foreground="Blue" />
+                                           TextAlignment="Right" Width="Auto" Foreground="Black" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -52,9 +51,8 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock hm:TextBlockHighlighting.FullText="{Binding Subtitle}"
-
                                            hm:TextBlockHighlighting.HighlightedText="{Binding Text, ElementName=searchBox}"
-                                           TextAlignment="Right" Width="Auto" />
+                                           TextAlignment="Right" Width="Auto" Foreground="Black" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

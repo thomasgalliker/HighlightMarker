@@ -50,8 +50,8 @@
     <file src="HighlightMarker.Netfx\bin\Release\HighlightMarker.xml" target="lib\net45\HighlightMarker.xml" />
 
     <!--Universal Windows Platform-->
-    <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.dll" target="lib\uap10.0\HighlightMarker.dll" />
+    <!--<file src="HighlightMarker.UWP\bin\Release\HighlightMarker.dll" target="lib\uap10.0\HighlightMarker.dll" />
     <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.pdb" target="lib\uap10.0\HighlightMarker.pdb" />
-    <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.xml" target="lib\uap10.0\HighlightMarker.xml" />
+    <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.xml" target="lib\uap10.0\HighlightMarker.xml" />-->
   </files>
 </package>
