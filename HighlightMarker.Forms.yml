@@ -52,7 +52,6 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-
 - powershell: |
    Write-Host "##vso[task.setvariable variable=PackageVersion]$(Build.BuildNumber)"
    Write-Host "##vso[task.setvariable variable=PackageVersionPre]$(Build.BuildNumber)$(BuildVersionPostfix)"
