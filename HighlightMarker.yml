@@ -6,12 +6,8 @@
 
 name: 2.0.$(date:yy)$(DayOfYear).$(rev:rr)
   
-queue:
-  name: windows-2019
-  demands: 
-  - msbuild
-  - visualstudio
-  - vstest
+pool:
+  vmImage: 'windows-2019'
 
 trigger:
   branches:
