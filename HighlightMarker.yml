@@ -31,10 +31,10 @@ steps:
   inputs:
     FileNames: |
      AssemblyInfo.cs
-     HighlightMarker.Annotations.csproj
+     HighlightMarker.csproj
     InsertAttributes: true
     Title: 'HighlightMarker.NET'
-    Description: 'A collection of commonly used IHighlightMarker for .NET applications'
+    Description: 'A simple-to-use highlight marker for search text highlighting'
     Company: 'superdev GmbH'
     Copyright: '(c) $(date:yyyy) superdev GmbH'
     VersionNumber: '$(Build.BuildNumber)'

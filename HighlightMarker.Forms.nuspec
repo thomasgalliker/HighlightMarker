@@ -67,12 +67,12 @@
     </releaseNotes>
     <copyright>Copyright 2018</copyright>
     <language>en-US</language>
-    <dependencies>
+    <!--<dependencies>
       <group>
-        <dependency id="HighlightMarker.Annotations" version="[$version$,)" />
+        <dependency id="HighlightMarker.xxx" version="[$version$,)" />
         <dependency id="Xamarin.Forms" version="[2.4.0.280,)" />
       </group>
-    </dependencies>
+    </dependencies>-->
   </metadata>
   <files>
     <!--.Net 4.6.1-->

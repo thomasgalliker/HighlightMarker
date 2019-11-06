@@ -112,12 +112,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\HighlightMarker.UWP.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HighlightMarker.Annotations\HighlightMarker.Annotations.csproj">
-      <Project>{b0366d3d-b8b0-4b91-9867-da88ad68252e}</Project>
-      <Name>HighlightMarker.Annotations</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

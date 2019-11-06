@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\HighlightMarker.NetFx\HighlightMarker.WPF.csproj" />
+    <ProjectReference Include="..\..\HighlightMarker\HighlightMarker.csproj" />
   </ItemGroup>
 
   <ItemGroup>
