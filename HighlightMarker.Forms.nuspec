@@ -27,12 +27,6 @@
     </releaseNotes>
     <copyright>Copyright 2019</copyright>
     <language>en-US</language>
-    <!--<dependencies>
-      <group>
-        <dependency id="HighlightMarker.xxx" version="[$version$,)" />
-        <dependency id="Xamarin.Forms" version="[2.4.0.280,)" />
-      </group>
-    </dependencies>-->
   </metadata>
   <files>
     <!--netstandard1.0-->
