@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:highlightMarker="clr-namespace:HighlightMarker;assembly=HighlightMarker.Forms"
+             x:Class="HighlightMarkerSample.Forms.Views.MainPage">
+    <ContentView.BindingContext>
+    </ContentView.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TrueStyleTemplate" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Green" />
+            </Style>
+            <Style x:Key="FalseStyleTemplate" TargetType="Button" >
+                <Setter Property="BackgroundColor" Value="Red" />
+            </Style>
+
+            <highlightMarker:BoolNegationConverter x:Key="BoolNegationConverter"/>
+            <highlightMarker:BoolToDoubleConverter x:Key="BoolToDoubleConverter" TrueValue="1" FalseValue="16"/>
+            <highlightMarker:BoolToFontAttributesConverter x:Key="BoolToFontAttributesConverter"/>
+            <highlightMarker:BoolToColorConverter x:Key="BoolToColorConverter" TrueValue="Red" FalseValue="Green"/>
+            <highlightMarker:BoolToStringConverter x:Key="BoolToStringConverter" TrueValue="Yes" FalseValue="No"/>
+            <highlightMarker:BoolToStyleConverter x:Key="BoolToStyleConverter" TrueValue="{StaticResource TrueStyleTemplate}" FalseValue="{StaticResource FalseStyleTemplate}"/>
+            <highlightMarker:BoolToThicknessConverter x:Key="BoolToThicknessConverter" TrueValue="1" FalseValue="4"/>
+            <highlightMarker:DateTimeConverter x:Key="DateTimeConverter" Format="d" MinValueString="---"/>
+            <highlightMarker:DebugConverter x:Key="DebugConverter"/>
+            <highlightMarker:EnumToBoolConverter x:Key="EnumToBoolConverter"/>
+            <highlightMarker:StringToObjectConverter x:Key="StringToObjectConverter"/>
+            <highlightMarker:EnumToObjectConverter x:Key="EnumToObjectConverter"/>
+            <highlightMarker:EnumWrapperConverter x:Key="EnumWrapperConverter"/>
+            <highlightMarker:IsEmptyConverter x:Key="IsEmptyConverter" IsInverted="True"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Text="IsEnabled:"/>
+        <Label Grid.Row="0" Grid.Column="1"
+           Text="{Binding IsEnabled, Converter={StaticResource BoolToStringConverter}}"
+           IsVisible="{Binding IsEditing, Converter={StaticResource BoolNegationConverter}}"
+           FontAttributes="{Binding IsEnabled, Converter={StaticResource BoolToFontAttributesConverter}}"/>
+        <Switch Grid.Row="0" Grid.Column="1"
+            IsToggled="{Binding IsEnabled, Converter={StaticResource DebugConverter}}"
+            IsVisible="{Binding IsEditing}"
+            BackgroundColor="{Binding IsEnabled, Converter={StaticResource BoolToColorConverter}}"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Text="ChangeDate:"/>
+        <Label Grid.Row="1" Grid.Column="1"
+           Text="{Binding ChangeDate, Converter={StaticResource DateTimeConverter}}"
+           IsVisible="{Binding IsEditing, Converter={StaticResource BoolNegationConverter}}"/>
+        <DatePicker Grid.Row="1" Grid.Column="1"
+                Date="{Binding ChangeDate}"
+                IsVisible="{Binding IsEditing}"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Text="Party mode:"/>
+        <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+            <Button Text="Next"
+              Command="{Binding NextPartyModeCommand}"
+              IsVisible="{Binding PartyModes, Converter={StaticResource IsEmptyConverter}}"
+              IsEnabled="{Binding IsEditing}"/>
+            <Label Text="{Binding SelectedPartyMode, Converter={StaticResource EnumWrapperConverter}, StringFormat='{0}'}"
+             IsVisible="{Binding IsEditing, Converter={StaticResource BoolNegationConverter}}"/>
+            <Picker x:Name="partyModePicker"
+                 Title="PartyMode"
+                 IsVisible="{Binding IsEditing}"
+                 VerticalOptions="Start"
+                 HorizontalOptions="Start"/>
+        </StackLayout>
+
+        <Label Grid.Row="4" Grid.Column="0" Text="Language:"/>
+        <Label Grid.Row="4" Grid.Column="1"
+           Text="{Binding SelectedLanguage.DisplayName}"
+           IsVisible="{Binding IsEditing, Converter={StaticResource BoolNegationConverter}}"/>
+        <Picker Grid.Row="4" Grid.Column="1"
+            x:Name="languagePicker"
+            Title="Language"
+            IsVisible="{Binding IsEditing}"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"/>
+
+        <Button Grid.Row="5" Grid.Column="1"
+            Text="Edit"
+            Command="{Binding EditCommand}"
+            Style="{Binding IsEditing, Converter={StaticResource BoolToStyleConverter}}"
+            IsEnabled="{Binding IsEditing, Converter={StaticResource BoolNegationConverter}}"
+            BorderWidth="2"
+            BorderRadius="4"/>
+
+        <Button Grid.Row="5" Grid.Column="2"
+            Text="Cancel"
+            Command="{Binding CancelCommand}"
+            Style="{Binding IsEditing, Converter={StaticResource BoolToStyleConverter}}"
+            IsEnabled="{Binding IsEditing}"/>
+    </Grid>
+</ContentPage>

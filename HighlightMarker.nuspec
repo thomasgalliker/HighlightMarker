@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HighlightMarker</id>
+    <version>2.0.0</version>
+    <title>HighlightMarker</title>
+    <authors>Thomas Galliker</authors>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/thomasgalliker/HighlightMarker</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>A simple-to-use highlight marker for search text highlighting.</summary>
+    <description>HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
+    </description>
+    <tags>highlight;highlighting;highlighter;texthighlighter;highlightmarker;text;marker;textmarker;marking;searchtext</tags>
+    <releaseNotes>2.0.0-pre
+- Add support for .Net Standard
+
+1.1.0
+- Added highlightable Background property to TextBlockHighlighting
+- Refactored to baid-and-switch pattern
+- Added support for Universal Windows Platform (UWP)
+
+1.0.3
+- Extended HighlightMarker to accept IHighlightProcessor instances which enables fulltext highlighting interception
+- Added HighlightProcessor property to TextBlockHighlighting (Windows-based platforms)
+
+1.0.2
+- Added TextBlockHighlighting for Windows Store Apps
+- Rename SearchTextHighlighting to TextBlockHighlighting in Windows Phone 8 library
+
+1.0.0
+- Initial release
+    </releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <language>en-US</language>
+    <frameworkAssemblies>
+      <!--.Net 4.5-->
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework="net45" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework="net45" />
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="net45" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework="net45" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net45" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <!--.Net 4.5-->
+    <file src="HighlightMarker.Netfx\bin\Release\HighlightMarker.dll" target="lib\net45\HighlightMarker.dll" />
+    <file src="HighlightMarker.Netfx\bin\Release\HighlightMarker.pdb" target="lib\net45\HighlightMarker.pdb" />
+    <file src="HighlightMarker.Netfx\bin\Release\HighlightMarker.xml" target="lib\net45\HighlightMarker.xml" />
+
+    <!--Universal Windows Platform-->
+    <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.dll" target="lib\uap10.0\HighlightMarker.dll" />
+    <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.pdb" target="lib\uap10.0\HighlightMarker.pdb" />
+    <file src="HighlightMarker.UWP\bin\Release\HighlightMarker.xml" target="lib\uap10.0\HighlightMarker.xml" />
+  </files>
+</package>

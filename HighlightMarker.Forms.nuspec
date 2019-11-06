@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HighlightMarker.Forms</id>
+    <version>2.0.0</version>
+    <title>IHighlightMarker for Xamarin.Forms</title>
+    <authors>Thomas Galliker</authors>
+    <licenseUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker.NET/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/thomasgalliker/HighlightMarker.NET</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker.NET/master/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>A collection of commonly used IHighlightMarker for Xamarin.Forms applications.</summary>
+    <description>A collection of commonly used IHighlightMarker for Xamarin.Forms applications.</description>
+    <tags>IValueConverter;ValueConverter;HighlightMarker;value;converter;HighlightMarker.Forms;UI;WPF;ToValueConverter</tags>
+    <releaseNotes>
+2.0.0-pre
+- Add support for .Net Standard
+- Rename StringLengthToBoolConverter to StringIsNotNullOrEmptyConverter
+- Add ByteToImageSourceConverter to convert between byte[] and Xamarin Forms ImageSource
+- Add GuidToStringConverter to convert Guid to string (and back)
+
+1.0.8
+- Add BoolToImageSourceConverter, BoolToGridLengthConverter
+- Add DoubleToBoolConverter, IntegerToBoolConverter, StringToBoolConverter
+- EnumWrapperConverter ConvertBack support for Nullable&#60;T&#62;
+- Add VersionToStringConverter with parameter 'fieldCount'
+      
+1.0.7
+- Bug fix in EnumWrapper when resolving Display attribute
+- Add NullToBoolConverter
+
+1.0.6
+- Add StringToDecimalConverter
+- Add ValueToBoolConverter
+
+1.0.4
+- Fix nuget package dependency problem
+
+1.0.3
+- Update nuget icon
+
+1.0.2
+- Add IsEmptyConverter to check for empty strings and other IEnumerables
+- Add SingletonConverterBase which provides a static/reusable Instance
+- Add BoolToColorConverter
+
+1.0.1
+- Extended BoolToValueConverter with IsInverted property
+- Extended EnumWrapper with LocalizedValue property for better INotifyPropertyChanged support
+- Add BoolNegationConverter
+- Add BoolToFontAttributesConverter
+- Add BoolToThicknessConverter
+- Add BoolToVisibilityConverter
+- Add EnumToObjectConverter
+- Add EnumToBoolConverter
+- Add EnumWrapperConverter
+- Add DebugConverter
+- Add StringLengthToBoolConverter
+
+1.0.0
+- Add BoolToBrushConverter
+- Add BoolToDoubleConverter
+- Add BoolToFontWeightConverter
+- Add BoolToStringConverter
+- Add BoolToValueConverter
+- Add DateTimeConverter
+    </releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <language>en-US</language>
+    <dependencies>
+      <group>
+        <dependency id="HighlightMarker.Annotations" version="[$version$,)" />
+        <dependency id="Xamarin.Forms" version="[2.4.0.280,)" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!--.Net 4.6.1-->
+    <file src="HighlightMarker.Forms\bin\Release\net461\HighlightMarker.Forms.dll" target="lib\net461\HighlightMarker.Forms.dll" />
+    <file src="HighlightMarker.Forms\bin\Release\net461\HighlightMarker.Forms.pdb" target="lib\net461\HighlightMarker.Forms.pdb" />
+
+    <!--.Net Standard 1.2-->
+    <file src="HighlightMarker.Forms\bin\Release\netstandard1.2\HighlightMarker.Forms.dll" target="lib\netstandard1.2\HighlightMarker.Forms.dll" />
+    <file src="HighlightMarker.Forms\bin\Release\netstandard1.2\HighlightMarker.Forms.pdb" target="lib\netstandard1.2\HighlightMarker.Forms.pdb" />
+    <file src="HighlightMarker.Forms\bin\Release\netstandard1.2\HighlightMarker.Forms.deps.json" target="lib\netstandard1.2\HighlightMarker.Forms.deps.json" />
+  </files>
+</package>
