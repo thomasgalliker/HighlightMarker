@@ -39,6 +39,7 @@
     <RootNamespace>HighlightMarker</RootNamespace>
     <PackageReleaseNotes></PackageReleaseNotes>
     <Copyright>Copyright 2021</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
