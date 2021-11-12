@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <IsPackable>false</IsPackable>
     <RootNamespace>HighlightMarker.Tests</RootNamespace>
   </PropertyGroup>
@@ -22,7 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\HighlightMarker\HighlightMarker.csproj" />
+    <ProjectReference Include="..\..\HighlightMarker.NetFx\HighlightMarker.Netfx.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
 
   <Import Project="..\HighlightMarker.Tests.Shared\HighlightMarker.Tests.Shared.projitems" Label="Shared" />

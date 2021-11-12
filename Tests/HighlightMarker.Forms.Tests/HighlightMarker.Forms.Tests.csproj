@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <RootNamespace>HighlightMarker.Tests</RootNamespace>
+    <DefineConstants>$(DefineConstants);XAMARIN</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\HighlightMarker\HighlightMarker.csproj" />
+    <ProjectReference Include="..\..\HighlightMarker.Forms\HighlightMarker.Forms.csproj" />
   </ItemGroup>
 
   <Import Project="..\HighlightMarker.Tests.Shared\HighlightMarker.Tests.Shared.projitems" Label="Shared" />
