@@ -38,7 +38,8 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RootNamespace>HighlightMarker</RootNamespace>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Copyright>Copyright 2019</Copyright>
+    <Copyright>Copyright 2021</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
@@ -46,11 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" version="[2.4.0.280,)"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
+    <PackageReference Include="Xamarin.Forms" version="[2.4.0.280,)" />
   </ItemGroup>
 
   <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />

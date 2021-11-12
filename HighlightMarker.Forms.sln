@@ -30,6 +30,8 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		HighlightMarker.Shared\HighlightMarker.Shared.projitems*{4d17e49b-5e42-487e-b057-da0d8d364662}*SharedItemsImports = 13
+		HighlightMarker.Shared\HighlightMarker.Shared.projitems*{5fd5e20e-e679-41a2-a024-9e5d3b43f0e9}*SharedItemsImports = 5
+		HighlightMarker.Shared\HighlightMarker.Shared.projitems*{6b67510a-a534-49d7-bf44-89fcd19b2c0c}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

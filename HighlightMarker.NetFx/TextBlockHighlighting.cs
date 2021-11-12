@@ -1,10 +1,11 @@
-﻿using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Media;
+﻿
 #if WPF
 using System.Windows;
-
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Media;
 #elif WINDOWS_UWP
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
@@ -117,14 +118,13 @@ namespace HighlightMarker
 
         private static void OnTextChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var textBlock = d as TextBlock;
-            if (textBlock == null)
+            if (!(d is TextBlock textBlock))
             {
                 return;
             }
 
-            string fulltext = GetFullText(textBlock) ?? string.Empty;
-            string highlightedText = GetHighlightedText(textBlock) ?? string.Empty;
+            var fulltext = GetFullText(textBlock) ?? string.Empty;
+            var highlightedText = GetHighlightedText(textBlock) ?? string.Empty;
 
             textBlock.Inlines.Clear();
 
@@ -134,9 +134,9 @@ namespace HighlightMarker
                 return;
             }
 
-            var foregroundBrush = GetForeground(textBlock) ?? ColorHelper.GetDefaultForegroundBrush();
+            var foregroundBrush = GetForeground(textBlock) ?? ColorHelper.DefaultForegroundBrush;
 #if !(WINDOWS_UWP)
-            var backgroundBrush = GetBackground(textBlock) ?? ColorHelper.GetDefaultBackgroundBrush();
+            var backgroundBrush = GetBackground(textBlock) ?? ColorHelper.DefaultBackgroundBrush;
 #endif
             var highlightProcessor = GetHighlightProcessor(textBlock);
 
@@ -144,9 +144,9 @@ namespace HighlightMarker
 
             foreach (var current in highlightMarker)
             {
-                int fromIndex = current.FromIndex;
-                int length = current.Length;
-                bool isHighlighted = current.IsHighlighted;
+                var fromIndex = current.FromIndex;
+                var length = current.Length;
+                var isHighlighted = current.IsHighlighted;
 
                 var inlineRun = new Run { Text = fulltext.Substring(fromIndex, length) };
                 if (isHighlighted)
