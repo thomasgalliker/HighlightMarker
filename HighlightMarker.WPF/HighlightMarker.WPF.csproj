@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ValueConverters</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>HighlightMarker</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\net5.0-windows\ValueConverters.xml</DocumentationFile>
+    <DefineConstants>TRACE;WPF</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;WPF</DefineConstants>
+  </PropertyGroup>
+
+  <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Compile Include="..\HighlightMarker.NetFx\ColorHelper.cs" Link="ColorHelper.cs" />
+    <Compile Include="..\HighlightMarker.NetFx\TextBlockHighlighting.cs" Link="TextBlockHighlighting.cs" />
+  </ItemGroup>
+
+</Project>

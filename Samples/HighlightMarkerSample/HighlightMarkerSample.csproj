@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Diacritics" Version="2.1.19293.1" />
+    <PackageReference Include="Diacritics" Version="3.3.10" />
   </ItemGroup>
 
   <ItemGroup>
