@@ -9,11 +9,15 @@
     <Import_RootNamespace>HighlightMarker</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)EnumerableExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)EnumeratorExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)HighlightIndex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\EnumerableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\EnumeratorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\HighlightIndex.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HighlightMarker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IHighlightProcessor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Range.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Range.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
   </ItemGroup>
 </Project>

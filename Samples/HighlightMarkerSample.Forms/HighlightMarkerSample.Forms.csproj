@@ -2,47 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="ObservableView" Version="2.2.19284.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\HighlightMarker.Forms\HighlightMarker.Forms.csproj" />
+    <ProjectReference Include="..\HighlightMarkerSample\HighlightMarkerSample.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Resources\PartyModeResources.Designer.cs">
-      <DependentUpon>PartyModeResources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="Resources\RadioFrequencyResources.Designer.cs">
-      <DependentUpon>RadioFrequencyResources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\PartyModeResources.resx">
-      <LastGenOutput>PartyModeResources.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\RadioFrequencyResources.resx">
-      <LastGenOutput>RadioFrequencyResources.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-
 </Project>

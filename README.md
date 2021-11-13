@@ -1,9 +1,9 @@
 <img src="https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/master/logo_cropped.png" ><br>
 HighlightMarker is a library which supports you in highlighting text of a UI label. This can be particularly helpful if you want to highlight the user's search input e.g. in a list of text items. 
 
-| Xamarin Android | Xamarin iOS | Windows Presentation Foundation | Windows Phone App 8.1 |Windows Store App 8.1 |
-| ----------------|-------------|---------------------------------|-----------------------|----------------------|
-| <img src="/Samples/Screenshot.Android.png" width="190"> | <img src="/Samples/Screenshot.iOS.png" width="190"> | <img src="/Samples/Screenshot.WPF.png" width="190"> |<img src="/Samples/Screenshot.WPA81.jpg" width="190"> |<img src="/Samples/Screenshot.WindowsStore81.png" width="190"> |
+| Xamarin Android | Xamarin iOS | Windows Presentation Foundation |
+| ----------------|-------------|---------------------------------|
+| <img src="/Img/Screenshot.Android.png" width="190"> | <img src="/Img/Screenshot.iOS.png" width="190"> | <img src="/Img/Screenshot.WPF.png" width="190"> |
 
 ### Download and Install HighlightMarker
 This library is available on NuGet: https://www.nuget.org/packages/HighlightMarker/
@@ -11,7 +11,8 @@ Use the following command to install HighlightMarker using NuGet package manager
 
     PM> Install-Package HighlightMarker
 
-You can use this library in any .Net project which is compatible to PCL (e.g. Xamarin Android, iOS, Windows Phone, Windows Store, Universal Apps, etc.). There is a special NuGet package for Xamarin.Forms available:
+The library is compatible with .NET Framework 4.5+, .NET 5+ and .NET Standard 1.0+.
+There is a special NuGet package for Xamarin.Forms available:
 
     PM> Install-Package HighlightMarker.Forms
 
@@ -28,8 +29,9 @@ var highlightMarker = new HighlightMarker(FullText, SearchText);
 var highlightList = highlightMarker.ToList();
 
 // Assert
+...
 ```
-![Debug view of highlightList](/readme/images/highlightlist.png)
+![Debug view of highlightList](/Img/Debug_HighlightList.png)
 
 In order to make this highlighting logic accessible to *any* UI, there is a couple of platform-specific implementations for UI text highlighting. Have a look at the following subchapters:
 
@@ -41,10 +43,10 @@ In the folder Samples\HighlightMarker.Forms you can find a Xamarin.Forms demo pr
            forms:TextHighlightBehavior.FullText="{Binding Title}" />
 ```
 
-#### Using HighlightMarker in Xamarin.Android projects
+#### Using HighlightMarker in Native Xamarin.Android projects
 Create a custom ListFragment and update each list item's content (which can be a custom FrameLayouts for example) when the highlight text has changed. There is an extension method  ```TextViewExtensions.HighlightText``` for highlighting the text of a ```TextView``` object.
 
-#### Using HighlightMarker in Xamarin.iOS projects
+#### Using HighlightMarker in Native Xamarin.iOS projects
 The sample project HighlightMarkerSample.iOS illustrates how to use HighlightMarker in Xamarin.iOS projects. CustomTableViewCell (which is an implementation of UITableViewCell) is responsible for updating the highlighting. ```UILabelExtensions``` contains an extension method ```HighlightText``` which is used to highlight the text of a UILabel.
 ```
 public class CustomTableViewCell : UITableViewCell
@@ -68,14 +70,11 @@ public class CustomTableViewCell : UITableViewCell
     //...
 ```
 
-#### Using HighlightMarker in Windows Phone projects
-TODO: Document usage of ```TextBlockHighlighting``` and its attached dependency properties.
-
 ### Feedback
 Let me know your optinion and how we can improve this project. You are kindly invited to write an issue if you want to discuss problems and/or propose new features. Contributors are highly welcome!
 
 ### License
-HighlightMarker is Copyright &copy; 2016 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
+HighlightMarker is Copyright &copy; 2019 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
 
 ### Sources
 

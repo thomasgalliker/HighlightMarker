@@ -1,8 +1,5 @@
 ﻿using HighlightMarkerSample.Forms.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 namespace HighlightMarkerSample.Forms
 {
@@ -12,7 +9,7 @@ namespace HighlightMarkerSample.Forms
         {
             this.InitializeComponent();
 
-            this.MainPage = new MainPage();
+            this.MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

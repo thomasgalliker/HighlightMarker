@@ -113,14 +113,13 @@ namespace HighlightMarker.Forms
 
         private static void OnTextPropertyChanged(BindableObject bindableObject /*, string oldValue, string newValue*/)
         {
-            var label = bindableObject as Label;
-            if (label == null)
+            if (!(bindableObject is Label label))
             {
                 return;
             }
 
-            string fulltext = GetFullText(label);
-            string highlightedText = GetHighlightedText(label);
+            var fulltext = GetFullText(label);
+            var highlightedText = GetHighlightedText(label);
 
             if (string.IsNullOrEmpty(fulltext) || string.IsNullOrEmpty(highlightedText))
             {
@@ -143,9 +142,9 @@ namespace HighlightMarker.Forms
 
                 while (enumerator.MoveNext())
                 {
-                    int fromIndex = enumerator.Current.FromIndex;
-                    int length = enumerator.Current.Length;
-                    bool isHighlighted = enumerator.Current.IsHighlighted;
+                    var fromIndex = enumerator.Current.FromIndex;
+                    var length = enumerator.Current.Length;
+                    var isHighlighted = enumerator.Current.IsHighlighted;
 
                     var span = new Span { Text = fulltext.Substring(fromIndex, length) };
                     if (isHighlighted)

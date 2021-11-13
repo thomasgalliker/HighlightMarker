@@ -20,13 +20,13 @@ namespace HighlightMarkerSample.WPF
 
             this.searchBox.Focus();
 
-            
+
             // In this example we use the binding Text = "{Binding ListItemsView.SearchText, Mode=TwoWay}"
             // in order to bind the searchBox.Text to the SearchText property of the ObservableView< Mall >.
             // Therefore, the following OnSearchBoxTextChanged event handler can be removed:
 
             // this.searchBox.TextChanged += this.OnSearchBoxTextChanged;
-            
+
 
             this.DataContext = this;
         }

@@ -83,9 +83,9 @@ namespace HighlightMarker
             }
 
             IEnumerable<int> realRange = new List<int>();
-            for (int i = 0; i < this.index.Count; i++)
+            for (var i = 0; i < this.index.Count; i++)
             {
-                Range range = this.index[i];
+                var range = this.index[i];
                 realRange = realRange.Union(Enumerable.Range(range.LowerBound, range.UpperBound - range.LowerBound));
             }
 
@@ -97,7 +97,7 @@ namespace HighlightMarker
             }
 
             var lastItem = new { LowerBound = 0, UpperBound = 0, IsHighlighted = false };
-            foreach (Range currentItem in consecutiveRanges.OrderBy(x => x.LowerBound).ThenBy(y => y.UpperBound))
+            foreach (var currentItem in consecutiveRanges.OrderBy(x => x.LowerBound).ThenBy(y => y.UpperBound))
             {
                 if (currentItem.LowerBound > lastItem.UpperBound)
                 {
@@ -145,19 +145,19 @@ namespace HighlightMarker
             }
 
             // Build highlighting index
-            foreach (string searchString in searchStrings)
+            foreach (var searchString in searchStrings)
             {
-                int length = searchString.Length;
+                var length = searchString.Length;
 
                 foreach (var fullTextItem in fullTextItems.Distinct())
                 {
-                    int searchStringIndex = fullTextItem.IndexOf(searchString, 0, StringComparison.CurrentCultureIgnoreCase);
+                    var searchStringIndex = fullTextItem.IndexOf(searchString, 0, StringComparison.CurrentCultureIgnoreCase);
 
                     while (searchStringIndex >= 0)
                     {
                         index.Add(new Range(searchStringIndex, searchStringIndex + length));
 
-                        int lastIndex = searchStringIndex + length;
+                        var lastIndex = searchStringIndex + length;
                         searchStringIndex = fullTextItem.IndexOf(searchString, lastIndex, StringComparison.CurrentCultureIgnoreCase);
                     }
                 }
