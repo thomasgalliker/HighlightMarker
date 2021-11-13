@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>ValueConverters</AssemblyName>
+    <AssemblyName>HighlightMarker.WPF</AssemblyName>
     <LangVersion>latest</LangVersion>
     <RootNamespace>HighlightMarker</RootNamespace>
   </PropertyGroup>
