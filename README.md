@@ -11,7 +11,8 @@ Use the following command to install HighlightMarker using NuGet package manager
 
     PM> Install-Package HighlightMarker
 
-The library is compatible with .NET 4.5+ and .NET Standard 1.0+. There is a special NuGet package for Xamarin.Forms available:
+The library is compatible with .NET Framework 4.5+, .NET 5+ and .NET Standard 1.0+.
+There is a special NuGet package for Xamarin.Forms available:
 
     PM> Install-Package HighlightMarker.Forms
 
