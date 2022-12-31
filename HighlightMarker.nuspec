@@ -7,7 +7,7 @@
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
     <projectUrl>https://github.com/thomasgalliker/HighlightMarker</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/Images/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>A simple-to-use highlight marker for search text highlighting.</summary>
     <description>HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
