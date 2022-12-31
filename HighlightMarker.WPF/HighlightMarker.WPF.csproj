@@ -1,23 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+	<TargetFrameworks>net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <AssemblyName>HighlightMarker.WPF</AssemblyName>
     <LangVersion>latest</LangVersion>
     <RootNamespace>HighlightMarker</RootNamespace>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\net5.0-windows\ValueConverters.xml</DocumentationFile>
-    <DefineConstants>TRACE;WPF</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup>
+		<DefineConstants>$(DefineConstants);NETWPF</DefineConstants>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;WPF</DefineConstants>
-  </PropertyGroup>
-
-  <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />
+	<Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <Compile Include="..\HighlightMarker.NetFx\ColorHelper.cs" Link="ColorHelper.cs" />

@@ -1,7 +1,8 @@
 ﻿
-#if WPF
+#if NETFX || NETWPF
 using System.Windows;
 using System.Windows.Media;
+
 #elif WINDOWS_UWP
 using Windows.UI;
 using Windows.UI.Xaml.Media;
