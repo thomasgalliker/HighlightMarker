@@ -44,8 +44,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TextBlockHighlighting.cs" />
     <Compile Include="ColorHelper.cs" />
+    <Compile Include="TextBlockHighlighting.cs" />
     <Compile Include="Properties\AssemblyConfig.cs" />
   </ItemGroup>
   <Import Project="..\HighlightMarker.Shared\HighlightMarker.Shared.projitems" Label="Shared" />

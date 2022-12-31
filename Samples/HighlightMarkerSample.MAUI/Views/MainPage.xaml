@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="HighlightMarkerSample.Forms.Views.MainPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    x:Class="HighlightMarkerSample.MAUI.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker.Forms">
+    xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker.MAUI">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="TextCellTemplate">
@@ -14,7 +14,7 @@
                             <!--  Title  -->
                             <!--  Specifies custom styles for the highlighted text  -->
                             <Label
-                                hm:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
+                                hm:TextHighlightBehavior.Background="{x:Static Colors.Yellow}"
                                 hm:TextHighlightBehavior.FontAttributes="{x:Static FontAttributes.Bold}"
                                 hm:TextHighlightBehavior.Foreground="{x:Static Color.Red}"
                                 hm:TextHighlightBehavior.FullText="{Binding Title}"
@@ -33,8 +33,8 @@
 
     <StackLayout Padding="10" Orientation="Vertical">
         <Label
-            hm:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
-            hm:TextHighlightBehavior.Foreground="{x:Static Color.Fuchsia}"
+            hm:TextHighlightBehavior.Background="{x:Static Colors.Yellow}"
+            hm:TextHighlightBehavior.Foreground="{x:Static Colors.Fuchsia}"
             hm:TextHighlightBehavior.FullText="HighlightMarker"
             hm:TextHighlightBehavior.HighlightedText="Highlight"
             FontAttributes="Bold"

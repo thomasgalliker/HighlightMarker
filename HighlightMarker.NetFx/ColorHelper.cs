@@ -13,12 +13,17 @@ namespace HighlightMarker
     internal static class ColorHelper
     {
         internal static Brush DefaultForegroundBrush { get; } =
-#if WINDOWS_UWP
-            new SolidColorBrush(Colors.Black);
-#else
+#if NETFX || NETWPF
             SystemColors.HighlightBrush;
+#elif WINDOWS_UWP
+            new SolidColorBrush(Colors.Black);
 #endif
 
-        public static Brush DefaultBackgroundBrush { get; } = new SolidColorBrush(Colors.Transparent);
+        public static Brush DefaultBackgroundBrush { get; } =
+#if NETFX || NETWPF
+            Brushes.Transparent;
+#elif WINDOWS_UWP            
+            new SolidColorBrush(Colors.Transparent);
+#endif
     }
 }

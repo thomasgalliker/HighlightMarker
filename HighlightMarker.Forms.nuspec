@@ -10,24 +10,9 @@
     <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>A simple-to-use highlight marker for search text highlighting.</summary>
-    <description>HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
-    </description>
+    <description>Dynamically highlights text with foreground/background colors</description>
     <tags>highlight;highlighting;highlighter;texthighlighter;highlightmarker;text;marker;textmarker;marking;searchtext</tags>
-    <releaseNotes>3.0.0
-- Cleanup, new builds with updated target platforms
-
-2.0.0
-- Add support for .NET Standard
-
-1.1.0
-- Add Foreground, Background and FontAttributes dependency properties to TextHighlightBehavior
-
-1.0.3
-- Bug fix for nuget dependencies
-
-1.0.0
-- Initial release
-    </releaseNotes>
+	<releaseNotes>See https://www.nuget.org/packages/HighlightMarker#release-body-tab</releaseNotes>
     <copyright>Copyright 2023</copyright>
     <language>en-US</language>
   </metadata>

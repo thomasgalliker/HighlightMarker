@@ -1,6 +1,10 @@
-﻿using Xamarin.Forms;
+﻿#if XAMARIN
+using Xamarin.Forms;
+#elif MAUI
+using Microsoft.Maui;
+#endif
 
-namespace HighlightMarker.Forms
+namespace HighlightMarker
 {
     public class TextHighlightBehavior
     {
@@ -30,7 +34,7 @@ namespace HighlightMarker.Forms
             propertyName: "Foreground",
             returnType: typeof(Color),
             declaringType: typeof(TextHighlightBehavior),
-            defaultValue: Color.Accent,
+            defaultValue: ColorHelper.DefaultForeground,
             defaultBindingMode: BindingMode.OneWay,
             validateValue: null,
             propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
@@ -41,7 +45,7 @@ namespace HighlightMarker.Forms
             propertyName: "Background",
             returnType: typeof(Color),
             declaringType: typeof(TextHighlightBehavior),
-            defaultValue: Color.Transparent,
+            defaultValue: ColorHelper.DefaultBackground,
             defaultBindingMode: BindingMode.OneWay,
             validateValue: null,
             propertyChanged: (b, o, n) => OnTextPropertyChanged(b /*, o, n*/),
@@ -149,7 +153,11 @@ namespace HighlightMarker.Forms
                     var span = new Span { Text = fulltext.Substring(fromIndex, length) };
                     if (isHighlighted)
                     {
+#if MAUI
+                        span.TextColor = foregroundColor;
+#else
                         span.ForegroundColor = foregroundColor;
+#endif
                         span.BackgroundColor = backgroundColor;
                         span.FontAttributes = fontAttributes;
                     }
