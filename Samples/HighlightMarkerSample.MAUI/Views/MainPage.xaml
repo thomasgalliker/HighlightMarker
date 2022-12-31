@@ -3,7 +3,8 @@
     x:Class="HighlightMarkerSample.MAUI.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker.MAUI">
+    xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker.MAUI"
+    Title=".NET MAUI Sample App">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="TextCellTemplate">
@@ -16,7 +17,7 @@
                             <Label
                                 hm:TextHighlightBehavior.Background="{x:Static Colors.Yellow}"
                                 hm:TextHighlightBehavior.FontAttributes="{x:Static FontAttributes.Bold}"
-                                hm:TextHighlightBehavior.Foreground="{x:Static Color.Red}"
+                                hm:TextHighlightBehavior.Foreground="{x:Static Colors.Red}"
                                 hm:TextHighlightBehavior.FullText="{Binding Title}"
                                 hm:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
                                 TextColor="Gray" />
@@ -44,7 +45,7 @@
         <Label
             FontAttributes="Bold"
             FontSize="16"
-            Text="Xamarin.Forms Sample App"
+            Text=".NET MAUI Sample App"
             TextColor="Gray" />
 
         <SearchBar
