@@ -10,7 +10,7 @@
     <AssemblyName>HighlightMarker.Forms</AssemblyName>
     <PackageId>HighlightMarker.Forms</PackageId>
     <PackageTags>HighlightMarker.Forms</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/master/logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/Images/logo.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/thomasgalliker/HighlightMarker</PackageProjectUrl>
     <PackageLicenseUrl>http://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
