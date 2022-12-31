@@ -2,8 +2,8 @@
 {
     internal static class ColorHelper
     {
-        internal static Brush DefaultForeground { get; } = Brush.Black;
+        internal static Color DefaultForeground { get; } = Colors.Black;
 
-        internal static Brush DefaultBackground { get; } = Brush.Transparent;
+        internal static Color DefaultBackground { get; } = Colors.Transparent;
     }
 }
