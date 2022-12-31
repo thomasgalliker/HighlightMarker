@@ -41,19 +41,19 @@
     <copyright>Copyright 2023</copyright>
     <language>en-US</language>
     <frameworkAssemblies>
-      <!--.Net 4.5-->
-      <frameworkAssembly assemblyName="PresentationCore" targetFramework="net45" />
-      <frameworkAssembly assemblyName="PresentationFramework" targetFramework="net45" />
-      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="net45" />
-      <frameworkAssembly assemblyName="System.Xaml" targetFramework="net45" />
-      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net45" />
+      <!--net48-->
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework="net48" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework="net48" />
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="net48" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework="net48" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net48" />
     </frameworkAssemblies>
   </metadata>
   <files>
-    <!--net45-->
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.dll" target="lib\net45\HighlightMarker.dll" />
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.pdb" target="lib\net45\HighlightMarker.pdb" />
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.xml" target="lib\net45\HighlightMarker.xml" />
+    <!--net48-->
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.dll" target="lib\net48\HighlightMarker.dll" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.pdb" target="lib\net48\HighlightMarker.pdb" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.xml" target="lib\net48\HighlightMarker.xml" />
 
     <!--netstandard1.0-->
     <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.dll" target="lib\netstandard1.0\HighlightMarker.dll" />
