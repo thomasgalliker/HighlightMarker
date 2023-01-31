@@ -1,9 +1,9 @@
-<img src="https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/master/logo_cropped.png" ><br>
+<img src="https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/Images/logo_cropped.png" ><br>
 HighlightMarker is a library which supports you in highlighting text of a UI label. This can be particularly helpful if you want to highlight the user's search input e.g. in a list of text items. 
 
 | Xamarin Android | Xamarin iOS | Windows Presentation Foundation |
 | ----------------|-------------|---------------------------------|
-| <img src="/Img/Screenshot.Android.png" width="190"> | <img src="/Img/Screenshot.iOS.png" width="190"> | <img src="/Img/Screenshot.WPF.png" width="190"> |
+| <img src="/Images/Screenshot.Android.png" width="190"> | <img src="/Images/Screenshot.iOS.png" width="190"> | <img src="/Images/Screenshot.WPF.png" width="190"> |
 
 ### Download and Install HighlightMarker
 This library is available on NuGet: https://www.nuget.org/packages/HighlightMarker/
@@ -31,7 +31,7 @@ var highlightList = highlightMarker.ToList();
 // Assert
 ...
 ```
-![Debug view of highlightList](/Img/Debug_HighlightList.png)
+![Debug view of highlightList](/Images/Debug_HighlightList.png)
 
 In order to make this highlighting logic accessible to *any* UI, there is a couple of platform-specific implementations for UI text highlighting. Have a look at the following subchapters:
 
@@ -74,7 +74,7 @@ public class CustomTableViewCell : UITableViewCell
 Let me know your optinion and how we can improve this project. You are kindly invited to write an issue if you want to discuss problems and/or propose new features. Contributors are highly welcome!
 
 ### License
-HighlightMarker is Copyright &copy; 2019 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
+HighlightMarker is Copyright &copy; 2023 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
 
 ### Sources
 
