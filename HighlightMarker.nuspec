@@ -7,16 +7,19 @@
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
     <projectUrl>https://github.com/thomasgalliker/HighlightMarker</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/HighlightMarker/develop/Images/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>A simple-to-use highlight marker for search text highlighting.</summary>
     <description>HighlightMarker is a library which supports you in highlighting an input string in a given text. Essentially, it tells you from/to which character of a given text you need to start/stop highlighting the user's search input.
     </description>
     <tags>highlight;highlighting;highlighter;texthighlighter;highlightmarker;text;marker;textmarker;marking;searchtext</tags>
-    <releaseNotes>3.0.0
+    <releaseNotes>4.0.x
+- Add support for .NET MAUI
+
+3.0.x
 - Cleanup, new builds with updated target platforms
 
-2.0.0
+2.0.x
 - Add support for .NET Standard
 
 1.1.0
@@ -38,19 +41,19 @@
     <copyright>Copyright 2023</copyright>
     <language>en-US</language>
     <frameworkAssemblies>
-      <!--.Net 4.5-->
-      <frameworkAssembly assemblyName="PresentationCore" targetFramework="net45" />
-      <frameworkAssembly assemblyName="PresentationFramework" targetFramework="net45" />
-      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="net45" />
-      <frameworkAssembly assemblyName="System.Xaml" targetFramework="net45" />
-      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net45" />
+      <!--net48-->
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework="net48" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework="net48" />
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="net48" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework="net48" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net48" />
     </frameworkAssemblies>
   </metadata>
   <files>
-    <!--net45-->
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.dll" target="lib\net45\HighlightMarker.dll" />
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.pdb" target="lib\net45\HighlightMarker.pdb" />
-    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.xml" target="lib\net45\HighlightMarker.xml" />
+    <!--net48-->
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.dll" target="lib\net48\HighlightMarker.dll" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.pdb" target="lib\net48\HighlightMarker.pdb" />
+    <file src="HighlightMarker.NetFx\bin\Release\HighlightMarker.xml" target="lib\net48\HighlightMarker.xml" />
 
     <!--netstandard1.0-->
     <file src="HighlightMarker\bin\Release\netstandard1.0\HighlightMarker.dll" target="lib\netstandard1.0\HighlightMarker.dll" />

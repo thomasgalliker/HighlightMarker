@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HighlightMarkerSample.MAUI.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker.MAUI"
+    Title=".NET MAUI Sample App">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="TextCellTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Padding="5" Orientation="Vertical">
+
+                            <!--  Title  -->
+                            <!--  Specifies custom styles for the highlighted text  -->
+                            <Label
+                                hm:TextHighlightBehavior.Background="{x:Static Colors.Yellow}"
+                                hm:TextHighlightBehavior.FontAttributes="{x:Static FontAttributes.Bold}"
+                                hm:TextHighlightBehavior.Foreground="{x:Static Colors.Red}"
+                                hm:TextHighlightBehavior.FullText="{Binding Title}"
+                                hm:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
+                                TextColor="Gray" />
+
+                            <!--  Subtitle  -->
+                            <!--  Uses default styles for the highlighted text  -->
+                            <Label hm:TextHighlightBehavior.FullText="{Binding Title}" hm:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}" />
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" Orientation="Vertical">
+        <Label
+            hm:TextHighlightBehavior.Background="{x:Static Colors.Yellow}"
+            hm:TextHighlightBehavior.Foreground="{x:Static Colors.Fuchsia}"
+            hm:TextHighlightBehavior.FullText="HighlightMarker"
+            hm:TextHighlightBehavior.HighlightedText="Highlight"
+            FontAttributes="Bold"
+            FontSize="32"
+            TextColor="Gray" />
+
+        <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            Text=".NET MAUI Sample App"
+            TextColor="Gray" />
+
+        <SearchBar
+            x:Name="SearchBar"
+            Placeholder="Search"
+            TextChanged="SearchBarOnTextChanged" />
+        <ListView
+            CachingStrategy="RetainElement"
+            HasUnevenRows="True"
+            ItemTemplate="{StaticResource TextCellTemplate}"
+            ItemsSource="{Binding Malls.View}" />
+    </StackLayout>
+</ContentPage>

@@ -1,28 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:forms="clr-namespace:HighlightMarker.Forms;assembly=HighlightMarker.Forms"
-             x:Class="HighlightMarkerSample.Forms.Views.MainPage">
+<ContentPage
+    x:Class="HighlightMarkerSample.Forms.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:hm="clr-namespace:HighlightMarker;assembly=HighlightMarker.Forms">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="TextCellTemplate">
                 <ViewCell>
                     <ViewCell.View>
-                        <StackLayout Orientation="Vertical" Padding="5">
+                        <StackLayout Padding="5" Orientation="Vertical">
 
-                            <!--Title-->
-                            <!--Specifies custom styles for the highlighted text-->
-                            <Label TextColor="Gray"
-                                 forms:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
-                                 forms:TextHighlightBehavior.FullText="{Binding Title}"
-                                 forms:TextHighlightBehavior.Foreground="{x:Static Color.Red}"
-                                 forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
-                                 forms:TextHighlightBehavior.FontAttributes="{x:Static FontAttributes.Bold}"/>
+                            <!--  Title  -->
+                            <!--  Specifies custom styles for the highlighted text  -->
+                            <Label
+                                hm:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
+                                hm:TextHighlightBehavior.FontAttributes="{x:Static FontAttributes.Bold}"
+                                hm:TextHighlightBehavior.Foreground="{x:Static Color.Red}"
+                                hm:TextHighlightBehavior.FullText="{Binding Title}"
+                                hm:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
+                                TextColor="Gray" />
 
-                            <!--Subtitle-->
-                            <!--Uses default styles for the highlighted text-->
-                            <Label forms:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}"
-                                   forms:TextHighlightBehavior.FullText="{Binding Title}" />
+                            <!--  Subtitle  -->
+                            <!--  Uses default styles for the highlighted text  -->
+                            <Label hm:TextHighlightBehavior.FullText="{Binding Title}" hm:TextHighlightBehavior.HighlightedText="{Binding Text, Source={x:Reference SearchBar}}" />
                         </StackLayout>
                     </ViewCell.View>
                 </ViewCell>
@@ -30,24 +31,30 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Orientation="Vertical" Padding="10">
-        <Label TextColor="Gray"
-           FontSize="32"
-           FontAttributes="Bold"
-           forms:TextHighlightBehavior.HighlightedText="Highlight"
-           forms:TextHighlightBehavior.FullText="HighlightMarker"
-           forms:TextHighlightBehavior.Foreground="{x:Static Color.Fuchsia}"
-           forms:TextHighlightBehavior.Background="{x:Static Color.Yellow}"/>
+    <StackLayout Padding="10" Orientation="Vertical">
+        <Label
+            hm:TextHighlightBehavior.Background="{x:Static Color.Yellow}"
+            hm:TextHighlightBehavior.Foreground="{x:Static Color.Fuchsia}"
+            hm:TextHighlightBehavior.FullText="HighlightMarker"
+            hm:TextHighlightBehavior.HighlightedText="Highlight"
+            FontAttributes="Bold"
+            FontSize="32"
+            TextColor="Gray" />
 
-        <Label TextColor="Gray"
-               FontSize="16"
-               FontAttributes="Bold"
-               Text="Xamarin.Forms Sample App"/>
+        <Label
+            FontAttributes="Bold"
+            FontSize="16"
+            Text="Xamarin.Forms Sample App"
+            TextColor="Gray" />
 
-        <SearchBar x:Name="SearchBar" Placeholder="Search" TextChanged="SearchBarOnTextChanged"/>
-        <ListView ItemsSource="{Binding Malls.View}"
-                  ItemTemplate="{StaticResource TextCellTemplate}"
-                  HasUnevenRows="True"
-                  CachingStrategy="RetainElement"/>
+        <SearchBar
+            x:Name="SearchBar"
+            Placeholder="Search"
+            TextChanged="SearchBarOnTextChanged" />
+        <ListView
+            CachingStrategy="RetainElement"
+            HasUnevenRows="True"
+            ItemTemplate="{StaticResource TextCellTemplate}"
+            ItemsSource="{Binding Malls.View}" />
     </StackLayout>
 </ContentPage>

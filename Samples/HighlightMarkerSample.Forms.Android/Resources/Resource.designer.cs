@@ -14,7 +14,7 @@ namespace HighlightMarkerSample.Forms.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.1.0.5")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.2.0.93")]
 	public partial class Resource
 	{
 		
@@ -153,6 +153,7 @@ namespace HighlightMarkerSample.Forms.Droid
 			global::Xamarin.Essentials.Resource.Id.text2 = global::HighlightMarkerSample.Forms.Droid.Resource.Id.text2;
 			global::Xamarin.Essentials.Resource.Id.time = global::HighlightMarkerSample.Forms.Droid.Resource.Id.time;
 			global::Xamarin.Essentials.Resource.Id.title = global::HighlightMarkerSample.Forms.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Id.view_tree_lifecycle_owner = global::HighlightMarkerSample.Forms.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::HighlightMarkerSample.Forms.Droid.Resource.Integer.status_bar_notification_info_maxnum;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::HighlightMarkerSample.Forms.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::HighlightMarkerSample.Forms.Droid.Resource.Layout.browser_actions_context_menu_row;
